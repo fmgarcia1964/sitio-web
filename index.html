@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Francisco García Campos</title>
+<meta name="description" content="Francisco García Campos, bioquímico y epidemiólogo. Tesis doctoral sobre vigilancia de las Infecciones Respiratorias Agudas mediante una Unidad Temática de Referencia con enfoque «Una Salud». Salta, Argentina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column de lectura (~68ch) con bandas a todo el ancho; motivo gráfico = tira de 52 semanas epidemiológicas */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --ink:#18242b; --muted:#56656d; --line:#d5dcd9;
+  --accent:#1f6f6b; --accent-soft:#e2efed;
+  --lv0:#dfe6e4; --lv1:#b9d7cf; --lv2:#e7c36a; --lv3:#d98c4a; --lv4:#b5473a;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11181c; --surface:#172126; --ink:#e4ebe8; --muted:#9aaab0; --line:#2c3a40;
+  --accent:#6cc1b9; --accent-soft:#1b3332;
+  --lv0:#25323a; --lv1:#2f5c55; --lv2:#b8963f; --lv3:#c27840; --lv4:#d0604f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11181c; --surface:#172126; --ink:#e4ebe8; --muted:#9aaab0; --line:#2c3a40;
+  --accent:#6cc1b9; --accent-soft:#1b3332;
+  --lv0:#25323a; --lv1:#2f5c55; --lv2:#b8963f; --lv3:#c27840; --lv4:#d0604f; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* aviso de prueba */
+.trial{background:var(--accent-soft);border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:.78rem;color:var(--ink)}
+.trial .wrap{padding-block:.5rem}
+
+/* nav */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:.75rem}
+.brand{font-family:var(--f-display);font-weight:700;color:var(--ink);text-decoration:none;font-size:1.05rem}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.1rem;flex-wrap:wrap}
+nav a{font-family:var(--f-display);font-weight:500;font-size:.95rem;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+
+section{padding-block:4.5rem}
+section + section{border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:.6rem;margin-bottom:2.25rem;max-width:44rem}
+.sec-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem)}
+.prose{max-width:42rem;display:grid;gap:1.1rem}
+
+/* hero */
+.hero{padding-block:4rem 3.5rem}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:3rem;align-items:end}
+.hero h1{font-size:clamp(2.3rem,5.5vw,3.9rem)}
+.hero .role{margin-top:1rem;font-size:1.15rem;color:var(--muted);max-width:36rem}
+.hero .thesis{margin-top:1.75rem;padding-top:1.25rem;border-top:2px solid var(--ink);max-width:38rem}
+.hero .thesis p.t{font-family:var(--f-display);font-weight:500;font-size:1.2rem;line-height:1.35;margin-top:.4rem}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem}
+.btn{display:inline-block;font-family:var(--f-display);font-weight:500;font-size:.95rem;padding:.65rem 1.1rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{color:var(--accent)}
+.creds{display:grid;gap:.5rem;font-size:.95rem;color:var(--muted)}
+.creds li{list-style:none;padding-left:0}
+.creds ul{margin:0;padding:0;display:grid;gap:.45rem}
+
+/* tira de semanas */
+.season{margin-top:3rem;display:grid;gap:.6rem}
+.weeks{display:grid;grid-template-columns:repeat(52,minmax(0,1fr));gap:2px;height:44px}
+.weeks span{background:var(--lv0);border-radius:1px}
+.weeks span.l1{background:var(--lv1)} .weeks span.l2{background:var(--lv2)} .weeks span.l4{background:var(--lv4)}
+.axis{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:1px;vertical-align:-1px;margin-right:.35rem}
+
+/* resumen */
+.abstract-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:3rem;align-items:start}
+.figures{display:grid;gap:0;border-top:1px solid var(--line)}
+.fig{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding-block:.85rem;border-bottom:1px solid var(--line);align-items:baseline}
+.fig b{font-family:var(--f-display);font-size:1.45rem;font-weight:700;font-variant-numeric:tabular-nums}
+.fig span{font-size:.92rem;color:var(--muted);line-height:1.45}
+.keywords{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.4rem}
+.keywords span{font-family:var(--f-mono);font-size:.75rem;border:1px solid var(--line);padding:.2rem .55rem;border-radius:3px;color:var(--muted)}
+
+/* diagrama UTR */
+.utr{margin-top:3.5rem;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.75rem;display:grid;gap:1.25rem}
+.utr-diagram{overflow-x:auto}
+.utr-diagram svg{display:block;width:100%;min-width:560px;height:auto}
+.utr-diagram text{font-family:var(--f-display);fill:var(--ink)}
+.utr-diagram .sm{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+
+/* estructura */
+.parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin-top:3.5rem}
+.part h3{font-size:1.05rem;margin:.35rem 0 .75rem}
+.part ol{margin:0;padding-left:1.2rem;display:grid;gap:.4rem;font-size:.95rem}
+
+/* líneas */
+.lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3rem}
+.line{padding-block:1.4rem;border-top:1px solid var(--line);display:grid;gap:.5rem}
+.line h3{font-size:1.15rem}
+.line p{font-size:.98rem;color:var(--ink)}
+.line .ch{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.future{margin-top:2.5rem;background:var(--accent-soft);border-radius:6px;padding:1.5rem 1.75rem;display:grid;gap:.75rem;max-width:52rem}
+.future ul{margin:0;padding-left:1.2rem;display:grid;gap:.35rem}
+.other{margin-top:2rem;color:var(--muted);font-size:.98rem;max-width:44rem}
+
+/* publicaciones */
+.pubs{display:grid;gap:0;border-top:1px solid var(--line)}
+.pub{display:grid;grid-template-columns:5rem minmax(0,1fr) auto;gap:1.25rem;padding-block:1.4rem;border-bottom:1px solid var(--line);align-items:start}
+.pub .yr{font-family:var(--f-mono);font-size:.9rem;color:var(--muted)}
+.pub h3{font-size:1.08rem;line-height:1.3}
+.pub p{font-size:.95rem;color:var(--muted);margin-top:.35rem}
+.tag{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:3px;border:1px solid var(--line);white-space:nowrap;color:var(--muted)}
+.tag.ok{border-color:var(--accent);color:var(--accent)}
+.pub-note{margin-top:1.25rem;font-size:.92rem;color:var(--muted)}
+
+/* contacto */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem}
+.mail{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.75rem}
+.mail code{font-family:var(--f-mono);font-size:1rem;background:var(--surface);border:1px solid var(--line);padding:.45rem .7rem;border-radius:4px;user-select:all;overflow-wrap:anywhere}
+.mail button{font-family:var(--f-display);font-weight:500;font-size:.9rem;background:none;border:1.5px solid var(--accent);color:var(--accent);padding:.45rem .9rem;border-radius:4px;cursor:pointer}
+.aff{display:grid;gap:1rem}
+.aff div{display:grid;gap:.15rem}
+.aff b{font-family:var(--f-display);font-weight:500}
+.aff span{font-size:.95rem;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero-grid,.abstract-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:2rem}
+  .parts{grid-template-columns:minmax(0,1fr)}
+  .lines{grid-template-columns:minmax(0,1fr)}
+  .pub{grid-template-columns:minmax(0,1fr)}
+  .pub .yr{order:-1}
+  section{padding-block:3.25rem}
+  .weeks{height:34px;gap:1px}
+}
+</style>
+</head>
+<body>
+
+<div class="trial"><div class="wrap">Versión de prueba · contenido en revisión</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Francisco García Campos</a>
+    <nav aria-label="Secciones"><ul>
+      <li><a href="#tesis">Tesis</a></li>
+      <li><a href="#lineas">Líneas de investigación</a></li>
+      <li><a href="#publicaciones">Publicaciones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="label">Epidemiología · Vigilancia en salud pública · Salta, Argentina</p>
+        <h1 style="margin-top:.75rem">Francisco García Campos</h1>
+        <p class="role">Bioquímico, magíster y especialista en Salud Pública, especialista en Epidemiología. Doctorando en Ciencias de la Salud en la Universidad Nacional de Salta.</p>
+        <div class="thesis">
+          <p class="label">Tesis doctoral · 2026</p>
+          <p class="t">Sistemas de vigilancia de las Infecciones Respiratorias Agudas (IRA) mediante una Unidad Temática de Referencia (UTR) con enfoque integral de «Una Salud»</p>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#tesis">Leer el resumen</a>
+          <a class="btn ghost" href="#lineas">Líneas de investigación</a>
+        </div>
+      </div>
+      <div class="creds">
+        <ul>
+          <li><span class="label">Cargo</span><br>Director General de Coordinación Epidemiológica, Ministerio de Salud Pública de Salta</li>
+          <li><span class="label">Doctorado</span><br>Ciencias de la Salud, Facultad de Ciencias de la Salud, UNSa</li>
+          <li><span class="label">Dirección de tesis</span><br>Dra. Ing. Verónica Beatriz Rajal · Codirección: Mg. Lic. Carlos María Giovacchini</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="season" aria-label="Temporada 2024 de influenza por semana epidemiológica">
+      <div class="weeks" id="weeks"></div>
+      <div class="axis num"><span>SE 1</span><span>SE 13</span><span>SE 26</span><span>SE 39</span><span>SE 52</span></div>
+      <div class="legend">
+        <span><i style="background:var(--lv0)"></i>Sin señal</span>
+        <span><i style="background:var(--lv2)"></i>Corredor endémico ETI en brote (SE 17–49)</span>
+        <span><i style="background:var(--lv4)"></i>Ventana crítica PISA, nivel extraordinario (SE 18–29)</span>
+      </div>
+      <p class="label" style="text-transform:none;letter-spacing:0">Temporada 2024, Departamento Capital. La ventana crítica fue mucho más acotada que el brote de 33 semanas del corredor endémico. Fuente: tesis, capítulos 4 y 6.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tesis">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Resumen de la tesis</p>
+      <h2>Un sistema de vigilancia-respuesta proactivo para las IRA</h2>
+    </div>
+    <div class="abstract-grid">
+      <div class="prose">
+        <p>Las Infecciones Respiratorias Agudas son la principal causa de notificación al Sistema Nacional de Vigilancia de la Salud (SNVS 2.0). La tesis se propuso diseñar un sistema de vigilancia-respuesta proactivo basado en una Unidad Temática de Referencia que integra los componentes clínico, epidemiológico y de laboratorio con el entorno sociodemográfico y ambiental, bajo el enfoque «Una Salud», con base territorial en el Departamento Capital de la provincia de Salta.</p>
+        <p>Es un estudio mixto organizado en siete capítulos: revisión sistematizada de la literatura (2015–2025), análisis normativo y de la red de vigilancia, evaluación de los atributos del sistema según Donabedian, Batista Moliner y los CDC, estudio descriptivo de las IRA entre 2018 y 2024, análisis de la vigilancia de COVID-19 y de 73 informes de SARS-CoV-2 en aguas residuales, mapeo de actores y análisis clima–IRA, y diseño funcional de la UTR.</p>
+        <p>La vigilancia de las IRA resultó eficaz para la gravedad hospitalaria pero fragmentada en el nivel ambulatorio y en el sector privado. La UTR, con sus tres subsistemas, conectores dinámicos «Una Salud» y un tablero de control, es una respuesta funcional a esas brechas. Su evaluación de impacto queda planteada para una etapa posterior.</p>
+        <div>
+          <p class="label">Palabras clave</p>
+          <div class="keywords">
+            <span>vigilancia en salud pública</span><span>infecciones respiratorias agudas</span><span>Una Salud</span><span>evaluación de sistemas de vigilancia</span><span>Unidad Temática de Referencia</span><span>aguas residuales</span><span>COVID-19</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:.6rem">Hallazgos principales</p>
+        <div class="figures">
+          <div class="fig"><b>238</b><span>establecimientos y 141 usuarios del SNVS 2.0 en la red analizada</span></div>
+          <div class="fig"><b>91,10 %</b><span>sensibilidad en internados (κ = 0,717)</span></div>
+          <div class="fig"><b>33,78 %</b><span>sensibilidad en monitoreo ambulatorio (κ = −0,191)</span></div>
+          <div class="fig"><b>15,28 %</b><span>completitud del dato nominal</span></div>
+          <div class="fig"><b>8,33 días</b><span>demora de la notificación agrupada</span></div>
+          <div class="fig"><b>r = 0,81</b><span>correlación entre SARS-CoV-2 en aguas residuales y la curva epidémica; la señal anticipó la ola Ómicron</span></div>
+          <div class="fig"><b>5–6 %</b><span>aumento de la ETI por cada grado de descenso de la temperatura</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="utr">
+      <div>
+        <p class="label">Modelo propuesto</p>
+        <h3 style="font-size:1.3rem;margin-top:.35rem">La Unidad Temática de Referencia</h3>
+        <p style="margin-top:.5rem;max-width:44rem;color:var(--muted)">Trabaja el grupo de eventos IRA como una unidad. Tres subsistemas comparten un mismo flujo de información; las fuentes no humanas entran como conectores dinámicos y el nodo de gestión del Primer Nivel de Atención es la unidad de observación.</p>
+      </div>
+      <div class="utr-diagram">
+        <svg viewBox="0 0 760 300" role="img" aria-label="Diagrama de la UTR: subsistemas clínico, epidemiológico y de laboratorio conectados a señales Una Salud y a un tablero de control">
+          <g fill="none" stroke="var(--line)" stroke-width="1.5">
+            <line x1="250" y1="60" x2="250" y2="240"/>
+            <line x1="250" y1="150" x2="300" y2="150"/>
+            <line x1="460" y1="150" x2="520" y2="150"/>
+          </g>
+          <g stroke="var(--line)" stroke-width="1.5">
+            <line x1="200" y1="60" x2="250" y2="60"/><line x1="200" y1="150" x2="250" y2="150"/><line x1="200" y1="240" x2="250" y2="240"/>
+          </g>
+          <g>
+            <rect x="20" y="35" width="180" height="50" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="110" y="65" text-anchor="middle" font-size="15" font-weight="700">Clínico</text>
+            <rect x="20" y="125" width="180" height="50" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="110" y="155" text-anchor="middle" font-size="15" font-weight="700">Epidemiológico</text>
+            <rect x="20" y="215" width="180" height="50" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="110" y="245" text-anchor="middle" font-size="15" font-weight="700">Laboratorio</text>
+          </g>
+          <rect x="300" y="105" width="160" height="90" rx="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="380" y="140" text-anchor="middle" font-size="16" font-weight="700">UTR · IRA</text>
+          <text x="380" y="162" text-anchor="middle" class="sm">nodo de gestión</text>
+          <text x="380" y="178" text-anchor="middle" class="sm">como unidad</text>
+          <rect x="520" y="115" width="220" height="70" rx="4" fill="var(--ink)"/>
+          <text x="630" y="146" text-anchor="middle" font-size="15" font-weight="700" style="fill:var(--bg)">Tablero de control</text>
+          <text x="630" y="166" text-anchor="middle" class="sm" style="fill:var(--bg);opacity:.8">índice epidémico · PISA</text>
+          <g class="sm">
+            <text x="300" y="30" class="sm">CONECTORES «UNA SALUD»</text>
+          </g>
+          <g font-size="12.5">
+            <rect x="300" y="40" width="130" height="26" rx="13" fill="none" stroke="var(--lv2)"/><text x="365" y="57" text-anchor="middle" font-size="12">Aguas residuales</text>
+            <rect x="440" y="40" width="80" height="26" rx="13" fill="none" stroke="var(--lv2)"/><text x="480" y="57" text-anchor="middle" font-size="12">Clima</text>
+            <rect x="530" y="40" width="120" height="26" rx="13" fill="none" stroke="var(--lv2)"/><text x="590" y="57" text-anchor="middle" font-size="12">Sanidad animal</text>
+            <rect x="300" y="235" width="170" height="26" rx="13" fill="none" stroke="var(--lv2)"/><text x="385" y="252" text-anchor="middle" font-size="12">Territorio · Censo 2022</text>
+          </g>
+          <g stroke="var(--lv2)" stroke-dasharray="3 3" stroke-width="1.2" fill="none">
+            <line x1="380" y1="66" x2="380" y2="105"/><line x1="385" y1="195" x2="385" y2="235"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="parts">
+      <div class="part">
+        <p class="label">Parte 1</p>
+        <h3>Vigilancia, estrategias y atributos del sistema</h3>
+        <ol start="1">
+          <li>La enfermedad respiratoria y su notificación en el SNVS 2.0</li>
+          <li>Estrategias de vigilancia epidemiológica de las enfermedades respiratorias</li>
+          <li>Valoración integral de los atributos del sistema de vigilancia</li>
+        </ol>
+      </div>
+      <div class="part">
+        <p class="label">Parte 2</p>
+        <h3>Análisis de la información del sistema</h3>
+        <ol start="4">
+          <li>Perfil epidemiológico de las enfermedades respiratorias (2018–2024)</li>
+          <li>Escenario epidemiológico de la pandemia por COVID-19 y vigilancia ambiental</li>
+        </ol>
+      </div>
+      <div class="part">
+        <p class="label">Parte 3</p>
+        <h3>«Una Salud» y Unidades Temáticas de Referencia</h3>
+        <ol start="6">
+          <li>Aplicación del enfoque «Una Salud» en la vigilancia respiratoria</li>
+          <li>Desarrollo e implementación de la Unidad Temática de Referencia</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lineas">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Líneas de investigación</p>
+      <h2>Lo que estudia la tesis</h2>
+    </div>
+    <div class="lines">
+      <article class="line">
+        <p class="ch">Capítulos 2 y 3</p>
+        <h3>Evaluación de sistemas de vigilancia</h3>
+        <p>Valoración de estructura, proceso y resultados con la tríada de Donabedian, la propuesta de Batista Moliner y las directrices de los CDC: simplicidad, flexibilidad, aceptabilidad, sensibilidad, oportunidad, integralidad y capacidad de autorrespuesta en siete nodos del Departamento Capital.</p>
+      </article>
+      <article class="line">
+        <p class="ch">Capítulos 1 y 4</p>
+        <h3>Perfil epidemiológico de las IRA</h3>
+        <p>Comportamiento de ETI, bronquiolitis, neumonía e IRAG entre 2018 y 2024 por tiempo, lugar y persona. Incluye el Índice de Presión de Nicho de Transmisibilidad (IPNT) y la aplicación del marco PISA de la OMS a la temporada 2024.</p>
+      </article>
+      <article class="line">
+        <p class="ch">Capítulo 5</p>
+        <h3>Vigilancia ambiental en aguas residuales</h3>
+        <p>Relación entre la señal de SARS-CoV-2 en aguas residuales (LAgS-INIQUI, UNSa–CONICET) y la curva epidémica de COVID-19, junto con el tiempo de duplicación y el número reproductivo efectivo (Rt).</p>
+      </article>
+      <article class="line">
+        <p class="ch">Capítulo 6</p>
+        <h3>Clima y enfermedad respiratoria</h3>
+        <p>Asociación entre temperatura y notificación de ETI controlando la estacionalidad. Una temperatura mínima semanal inferior a 8 °C marca la entrada en la temporada de mayor notificación.</p>
+      </article>
+      <article class="line">
+        <p class="ch">Capítulo 6</p>
+        <h3>«Una Salud» en el territorio</h3>
+        <p>Mapeo de actores de la salud humana, la sanidad animal y el ambiente en Salta, y análisis de cómo se articulan hoy para la vigilancia respiratoria.</p>
+      </article>
+      <article class="line">
+        <p class="ch">Capítulo 7</p>
+        <h3>Diseño de la UTR y tablero de control</h3>
+        <p>Definición técnica y operativa de la UTR, integración censal y SIG por nodo de gestión, alertas basadas en el índice epidémico y la metodología PISA, y un prototipo de tablero en Looker Studio.</p>
+      </article>
+    </div>
+
+    <div class="future">
+      <p class="label">Líneas futuras</p>
+      <ul>
+        <li>Evaluación de impacto de la UTR tras su implementación (hoja de ruta 2025–2027).</li>
+        <li>Modelos multivariados con autocorrelación para relacionar la señal ambiental con indicadores clínicos.</li>
+        <li>Incorporación de calidad del aire y vigilancia animal sistemática.</li>
+        <li>Análisis espacial de vulnerabilidad socioterritorial e incidencia de IRA por radio censal.</li>
+        <li>Replicación del modelo en otros grupos de eventos y otros departamentos de la provincia.</li>
+      </ul>
+    </div>
+
+    <p class="other">Otras áreas de trabajo en vigilancia epidemiológica: leishmaniasis, hantavirus, Chagas y brotes de arbovirus.</p>
+  </div>
+</section>
+
+<section id="publicaciones">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Publicaciones y productos</p>
+      <h2>Documentos de la tesis</h2>
+    </div>
+    <div class="pubs">
+      <article class="pub">
+        <span class="yr num">2026</span>
+        <div>
+          <h3>Sistemas de vigilancia de las Infecciones Respiratorias Agudas (IRA) mediante una Unidad Temática de Referencia (UTR) con enfoque integral de «Una Salud»</h3>
+          <p>Tesis de Doctorado en Ciencias de la Salud. Facultad de Ciencias de la Salud, Universidad Nacional de Salta.</p>
+        </div>
+        <span class="tag ok">Tesis</span>
+      </article>
+      <article class="pub">
+        <span class="yr num">2026</span>
+        <div>
+          <h3>La Unidad Temática de Referencia (UTR) para la vigilancia de las IRA con enfoque integral de «Una Salud». Documento técnico-operativo</h3>
+          <p>Definición, estructura, componentes, conectores, procedimientos y algoritmos. Departamento Capital, provincia de Salta. Apartado final de la tesis.</p>
+        </div>
+        <span class="tag ok">Documento técnico</span>
+      </article>
+      <article class="pub">
+        <span class="yr num">2026</span>
+        <div>
+          <h3>Tablero UTR · IRA Salta Capital</h3>
+          <p>Prototipo de tablero de control en Looker Studio con valores 2024 de la tesis: alertas por semana epidemiológica, indicadores clínicos, virológicos y de severidad, señales «Una Salud» y territorio.</p>
+        </div>
+        <span class="tag">Prototipo</span>
+      </article>
+      <article class="pub">
+        <span class="yr num">—</span>
+        <div>
+          <h3>Artículos derivados de la tesis</h3>
+          <p>En preparación.</p>
+        </div>
+        <span class="tag">Próximamente</span>
+      </article>
+    </div>
+    <p class="pub-note">Los documentos completos están disponibles a pedido. Escribime desde la sección de contacto.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Contacto</p>
+      <h2>Consultas, colaboraciones y pedidos de documentos</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p>Para consultas sobre la tesis, la UTR o colaboraciones en vigilancia epidemiológica, escribime a:</p>
+        <div class="mail">
+          <code id="email">pacogarciacampos1964@gmail.com</code>
+          <button type="button" id="copy">Copiar</button>
+        </div>
+        <p class="label" id="copied" style="margin-top:.5rem" aria-live="polite"></p>
+      </div>
+      <div class="aff">
+        <div><b>Universidad Nacional de Salta</b><span>Doctorado en Ciencias de la Salud, Facultad de Ciencias de la Salud</span></div>
+        <div><b>Ministerio de Salud Pública de Salta</b><span>Dirección General de Coordinación Epidemiológica</span></div>
+        <div><b>Salta, Argentina</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Francisco García Campos</span><span>Sitio en versión de prueba</span></div></footer>
+
+<script>
+(function(){
+  var w=document.getElementById('weeks');
+  for(var i=1;i<=52;i++){var s=document.createElement('span');
+    if(i>=18&&i<=29)s.className='l4';else if(i>=17&&i<=49)s.className='l2';
+    s.title='SE '+i;w.appendChild(s);}
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var b=document.getElementById('copy'),m=document.getElementById('copied'),e=document.getElementById('email');
+  b.addEventListener('click',function(){
+    var t=e.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(e);var g=window.getSelection();g.removeAllRanges();g.addRange(r);m.textContent='Dirección seleccionada: copiala con Ctrl+C';}
+    try{navigator.clipboard.writeText(t).then(function(){m.textContent='Dirección copiada';},sel);}catch(err){sel();}
+  });
+})();
+</script>
+
+</body>
+</html>
