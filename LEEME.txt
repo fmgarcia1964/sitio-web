@@ -1,0 +1,11 @@
+SITIO franciscogarciacampos.com - versión de prueba
+====================================================
+Contenido: un único archivo index.html (no requiere base de datos ni PHP).
+
+Para publicarlo:
+- Netlify: arrastrar esta carpeta a app.netlify.com/drop
+- GitHub Pages: subir index.html a un repositorio y activar Pages
+- Hosting tradicional (cPanel): subir index.html a la carpeta public_html
+
+Para cambiar textos: abrir index.html con cualquier editor de texto
+(Bloc de notas, VS Code) y editar entre las etiquetas.
