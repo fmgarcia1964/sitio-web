@@ -7,139 +7,196 @@
 <meta name="description" content="Francisco García Campos, bioquímico y epidemiólogo. Director General de Coordinación Epidemiológica del Ministerio de Salud Pública de Salta. Vigilancia de arbovirosis, hantavirus, leishmaniasis y Chagas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
+/* Paleta: estratos pastel de los valles salteños. Cada área de trabajo tiene su color y lo conserva en todo el sitio. */
 :root{
-  --bg:#f6f7f5; --surface:#ffffff; --ink:#18242b; --muted:#56656d; --line:#d5dcd9;
-  --accent:#1f6f6b; --accent-soft:#e2efed;
-  --lv0:#dfe6e4; --lv1:#b9d7cf; --lv2:#e7c36a; --lv4:#b5473a;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
-  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --paper:#f7f8fb; --surface:#ffffff; --ink:#2b2f3a; --muted:#5e6472; --line:#e3e5ec;
+  --accent:#5a4fa0; --accent-ink:#ffffff;
+  --arbo:#f6c9ae; --hanta:#ecdca8; --leish:#d3cbf0; --chagas:#f3bccb; --palu:#bcdff1; --vigil:#c6e2cb;
+  --arbo-d:#a8582f; --hanta-d:#7d6a1f; --leish-d:#5a4fa0; --chagas-d:#a3405e; --palu-d:#2f6d8c; --vigil-d:#3f7a4a;
+  --f-display:"Young Serif", Georgia, serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --r-lg:22px; --r-md:14px; --r-sm:8px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#11181c; --surface:#172126; --ink:#e4ebe8; --muted:#9aaab0; --line:#2c3a40;
-  --accent:#6cc1b9; --accent-soft:#1b3332;
-  --lv0:#25323a; --lv1:#2f5c55; --lv2:#b8963f; --lv4:#d0604f; color-scheme:dark}}
+  --paper:#1d2030; --surface:#262a3c; --ink:#eceef4; --muted:#aab0c0; --line:#363b50;
+  --accent:#c9c1f5; --accent-ink:#1d2030;
+  --arbo:#5e4537; --hanta:#57503a; --leish:#464068; --chagas:#5e3c49; --palu:#33505f; --vigil:#3a5441;
+  --arbo-d:#f6c9ae; --hanta-d:#ecdca8; --leish-d:#d3cbf0; --chagas-d:#f3bccb; --palu-d:#bcdff1; --vigil-d:#c6e2cb;
+  color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#11181c; --surface:#172126; --ink:#e4ebe8; --muted:#9aaab0; --line:#2c3a40;
-  --accent:#6cc1b9; --accent-soft:#1b3332;
-  --lv0:#25323a; --lv1:#2f5c55; --lv2:#b8963f; --lv4:#d0604f; color-scheme:dark}
+  --paper:#1d2030; --surface:#262a3c; --ink:#eceef4; --muted:#aab0c0; --line:#363b50;
+  --accent:#c9c1f5; --accent-ink:#1d2030;
+  --arbo:#5e4537; --hanta:#57503a; --leish:#464068; --chagas:#5e3c49; --palu:#33505f; --vigil:#3a5441;
+  --arbo-d:#f6c9ae; --hanta-d:#ecdca8; --leish-d:#d3cbf0; --chagas-d:#f3bccb; --palu-d:#bcdff1; --vigil-d:#c6e2cb;
+  color-scheme:dark}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
 a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+h1,h2{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em}
+h3,h4{font-family:var(--f-body);font-weight:700}
 p{margin:0}
-.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.label{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:70rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .num{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
 
-header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:.75rem}
-.brand{font-family:var(--f-display);font-weight:700;color:var(--ink);text-decoration:none;font-size:1.05rem}
-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.1rem;flex-wrap:wrap}
-nav a{font-family:var(--f-display);font-weight:500;font-size:.95rem;color:var(--muted);text-decoration:none}
-nav a:hover{color:var(--accent)}
+/* encabezado */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;flex-wrap:wrap;padding-block:.7rem}
+.brand{font-family:var(--f-display);font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:.25rem .9rem;flex-wrap:wrap}
+nav a{font-weight:500;font-size:.95rem;color:var(--muted);text-decoration:none;padding:.2rem 0}
+nav a:hover{color:var(--ink)}
 
-section{padding-block:4.5rem}
-section + section{border-top:1px solid var(--line)}
-.sec-head{display:grid;gap:.6rem;margin-bottom:2.25rem;max-width:44rem}
-.sec-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem)}
-.prose{max-width:42rem;display:grid;gap:1.1rem}
+section{padding-block:clamp(3.25rem,7vw,5.5rem)}
+.head{display:grid;gap:.7rem;margin-bottom:2.25rem;max-width:44rem}
+.head h2{font-size:clamp(2rem,4.2vw,2.9rem)}
+.head p{color:var(--muted);font-size:1.05rem}
+.band{background:var(--surface)}
 h3.sub{font-size:1.15rem;margin:3rem 0 1rem}
 
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-body);font-weight:600;font-size:.95rem;padding:.6rem 1.1rem;border-radius:999px;text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;line-height:1.2}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.06)}
+.btn.small{font-size:.85rem;padding:.38rem .85rem}
+.btn small{font-weight:400;opacity:.8}
+
 /* hero */
-.hero{padding-block:4rem 3.5rem}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:3rem;align-items:end}
-.hero h1{font-size:clamp(2.3rem,5.5vw,3.9rem)}
-.hero .role{margin-top:1rem;font-size:1.15rem;color:var(--muted);max-width:36rem}
-.cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem}
-.btn{display:inline-block;font-family:var(--f-display);font-weight:500;font-size:.95rem;padding:.65rem 1.1rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--accent)}
-.btn.primary{background:var(--accent);color:var(--bg)}
-.btn.ghost{color:var(--accent)}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
-.stats div{padding:.9rem 0;border-bottom:1px solid var(--line);display:grid;gap:.1rem}
-.stats div:nth-child(odd){padding-right:1rem}
-.stats b{font-family:var(--f-display);font-size:1.9rem;line-height:1.1;font-variant-numeric:tabular-nums}
-.stats span{font-size:.88rem;color:var(--muted);line-height:1.35}
+.hero{padding-block:clamp(2.5rem,6vw,4.5rem) clamp(3rem,6vw,4.5rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero .where{font-weight:500;color:var(--muted)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-top:.6rem;line-height:1.02}
+.hero .role{margin-top:1.25rem;font-size:1.2rem;max-width:34rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.75rem}
+.strata{display:grid;gap:1rem}
+.strata svg{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.86rem;font-weight:500;padding:.28rem .7rem;border-radius:999px;text-decoration:none;color:var(--ink);background:var(--c)}
+.chip:hover{filter:brightness(.97)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--line);padding-top:1.5rem}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1}
+.facts span{display:block;margin-top:.4rem;font-size:.92rem;color:var(--muted);line-height:1.4}
 
-.weeks{margin-top:3rem;display:grid;grid-template-columns:repeat(52,minmax(0,1fr));gap:2px;height:28px}
-.weeks span{background:var(--lv0);border-radius:1px}
-.weeks span.l1{background:var(--lv1)} .weeks span.l2{background:var(--lv2)} .weeks span.l4{background:var(--lv4)}
-
-/* perfil */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:3rem;align-items:start}
-.rows{display:grid;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding-block:.8rem;border-bottom:1px solid var(--line);align-items:baseline}
-.row .yr{font-family:var(--f-mono);font-size:.82rem;color:var(--muted)}
-.row b{font-family:var(--f-display);font-weight:500;display:block;line-height:1.3}
-.row span.where{font-size:.92rem;color:var(--muted)}
-.row.now .yr{color:var(--accent)}
+/* trayectoria */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.prose{display:grid;gap:1.1rem;max-width:40rem}
+.timeline{position:relative;display:grid;gap:0}
+.timeline li{position:relative;display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding:.85rem 0 .85rem 1.4rem;border-left:2px solid var(--line)}
+.timeline li::before{content:"";position:absolute;left:-7px;top:1.2rem;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--line)}
+.timeline li.now::before{background:var(--accent);border-color:var(--accent)}
+.timeline .yr{font-size:.88rem;color:var(--muted);font-weight:500}
+.timeline b{display:block;font-weight:600;line-height:1.3}
+.timeline small{display:block;font-size:.92rem;color:var(--muted)}
+.col-title{font-family:var(--f-display);font-size:1.35rem;margin-bottom:1rem}
 
 /* áreas */
-.lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3rem}
-.line{padding-block:1.4rem;border-top:1px solid var(--line);display:grid;gap:.5rem;align-content:start}
-.line h3{font-size:1.15rem}
-.line p{font-size:.98rem}
-.line .ch{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.area{background:var(--c);border-radius:var(--r-lg);padding:1.5rem 1.5rem 1.6rem;display:grid;gap:.6rem;align-content:start}
+.area .kind{font-size:.85rem;font-weight:600;color:var(--cd)}
+.area h3{font-family:var(--f-display);font-weight:400;font-size:1.45rem}
+.area p{font-size:.98rem}
 
 /* publicaciones */
-.pubs{display:grid;border-top:1px solid var(--line)}
-.pub{display:grid;grid-template-columns:5rem minmax(0,1fr) auto;gap:1.25rem;padding-block:1.3rem;border-bottom:1px solid var(--line);align-items:start}
-.pub .yr{font-family:var(--f-mono);font-size:.9rem;color:var(--muted)}
+.pubs{display:grid;gap:.75rem}
+.pub{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.25rem;background:var(--surface);border-radius:var(--r-md);padding:1.25rem 1.4rem;border-left:6px solid var(--c)}
+.pub .yr{font-weight:600;color:var(--muted)}
 .pub h3{font-size:1.05rem;line-height:1.35}
-.pub p{font-size:.93rem;color:var(--muted);margin-top:.35rem}
+.pub p{font-size:.94rem;color:var(--muted);margin-top:.35rem}
 .pub p a{overflow-wrap:anywhere}
-.tag{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:3px;border:1px solid var(--line);white-space:nowrap;color:var(--muted)}
-.tag.ok{border-color:var(--accent);color:var(--accent)}
-.pub-note{margin-top:1.25rem;font-size:.92rem;color:var(--muted);max-width:52rem}
-.dl{justify-self:start;display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-family:var(--f-display);font-weight:500;font-size:.88rem;text-decoration:none;border:1px solid var(--accent);border-radius:4px;padding:.25rem .6rem;color:var(--accent)}
-.dl:hover{background:var(--accent-soft)}
-.dl small{font-family:var(--f-mono);font-weight:400;color:var(--muted);font-size:.72rem}
-.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1rem}
-.doc{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.35rem;display:grid;gap:.45rem;align-content:start}
-.doc h4{font-family:var(--f-display);font-size:1.05rem;line-height:1.3;margin:0}
-.doc p{font-size:.93rem;color:var(--muted)}
-@media (max-width:820px){.docs{grid-template-columns:minmax(0,1fr)}}
+.pub .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;margin-top:.7rem}
+.kind-tag{font-size:.8rem;font-weight:600;padding:.15rem .6rem;border-radius:999px;background:var(--c);color:var(--ink)}
+.note{margin-top:1.25rem;font-size:.93rem;color:var(--muted);max-width:52rem}
+.plain{display:grid}
+.plain li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.25rem;padding-block:.8rem;border-bottom:1px solid var(--line);font-size:.98rem}
+.plain li:first-child{border-top:1px solid var(--line)}
+.plain .yr{color:var(--muted);font-weight:600}
+.plain em{font-style:normal;color:var(--muted)}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--c);margin-right:.45rem;vertical-align:.05rem}
 
-/* listas compactas */
-.compact{display:grid;border-top:1px solid var(--line)}
-.compact li{list-style:none;display:grid;grid-template-columns:5rem minmax(0,1fr);gap:1.25rem;padding-block:.75rem;border-bottom:1px solid var(--line);font-size:.97rem}
-.compact ul{margin:0;padding:0}
-.compact .yr{font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
-.compact em{color:var(--muted);font-style:normal}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem}
+/* visor de presentaciones */
+.picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+.pick{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:.35rem;padding:1rem 1.2rem;border-radius:var(--r-md);background:var(--surface);border:2px solid transparent}
+.pick:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.pick[aria-selected="true"]{border-color:var(--cd);background:var(--c)}
+.pick .yr{font-size:.85rem;font-weight:600;color:var(--muted)}
+.pick .t{font-weight:700;line-height:1.3}
+.pick .w{font-size:.9rem;color:var(--muted)}
+.viewer{background:var(--surface);border-radius:var(--r-lg);padding:clamp(.75rem,2vw,1.25rem);display:grid;gap:.9rem}
+.stage{--ar:1.7778;position:relative;background:#e9eaf0;border-radius:var(--r-md);overflow:hidden;aspect-ratio:var(--ar);width:min(100%,calc(76vh * var(--ar)));margin-inline:auto;display:grid;place-items:center;user-select:none;-webkit-user-select:none}
+.stage img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.stage .msg{position:absolute;inset:0;display:grid;place-items:center;padding:1rem;text-align:center;color:#5e6472;font-size:.95rem}
+.stage:fullscreen{background:#111;border-radius:0;aspect-ratio:auto;width:100%}
+.stage .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#2b2f3a;font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.stage .nav.prev{left:.6rem} .stage .nav.next{right:.6rem}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;justify-content:space-between}
+.controls .left{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.progress{flex:1 1 10rem;height:6px;border-radius:99px;background:var(--line);overflow:hidden;min-width:8rem}
+.progress i{display:block;height:100%;width:0;background:var(--cd);transition:width .3s}
+.counter{font-size:.92rem;color:var(--muted);min-width:4.5rem}
+.viewer-foot{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;justify-content:space-between;font-size:.93rem;color:var(--muted)}
+
+/* galería y videos */
+.gallery{columns:3 15rem;column-gap:1rem}
+.gallery figure{break-inside:avoid;margin:0 0 1rem;background:var(--surface);border-radius:var(--r-md);overflow:hidden}
+.gallery button{all:unset;cursor:zoom-in;display:block;width:100%}
+.gallery button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.gallery img{display:block;width:100%;height:auto}
+.gallery figcaption{padding:.6rem .85rem .75rem;font-size:.9rem;color:var(--muted)}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh}
+dialog.lightbox::backdrop{background:rgba(20,22,32,.85)}
+dialog.lightbox img{display:block;max-width:100%;max-height:82vh;border-radius:var(--r-md);margin:0 auto}
+dialog.lightbox p{color:#fff;text-align:center;margin-top:.6rem;font-size:.95rem}
+dialog.lightbox .close{position:absolute;top:.4rem;right:.4rem;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:1.3rem;cursor:pointer}
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:1rem}
+.video{background:var(--surface);border-radius:var(--r-md);overflow:hidden}
+.video .frame{position:relative;aspect-ratio:16/9;background:#000}
+.video .frame button{all:unset;cursor:pointer;position:absolute;inset:0;display:grid;place-items:center}
+.video .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video .frame .play{position:relative;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:1.5rem;color:#2b2f3a;padding-left:4px}
+.video .frame button:focus-visible .play{outline:3px solid #fff;outline-offset:3px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video h3{font-size:1rem;padding:.75rem 1rem .9rem;line-height:1.35}
 
 /* contacto */
-.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem}
-.mail{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.75rem}
-.mail code{font-family:var(--f-mono);font-size:1rem;background:var(--surface);border:1px solid var(--line);padding:.45rem .7rem;border-radius:4px;user-select:all;overflow-wrap:anywhere}
-.mail button{font-family:var(--f-display);font-weight:500;font-size:.9rem;background:none;border:1.5px solid var(--accent);color:var(--accent);padding:.45rem .9rem;border-radius:4px;cursor:pointer}
-.ids{margin-top:1.5rem;display:grid;gap:.4rem;font-size:.97rem}
-.ids span.label{margin-right:.5rem}
-.aff{display:grid;gap:1rem}
-.aff div{display:grid;gap:.15rem}
-.aff b{font-family:var(--f-display);font-weight:500}
-.aff span{font-size:.95rem;color:var(--muted)}
+.contact{background:var(--leish);border-radius:var(--r-lg);padding:clamp(1.5rem,4vw,2.75rem);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem}
+.contact h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.contact p{margin-top:.75rem}
+.mail{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.25rem}
+.mail code{font-family:var(--f-body);font-weight:600;font-size:1.02rem;background:var(--surface);padding:.5rem .85rem;border-radius:999px;user-select:all;overflow-wrap:anywhere}
+.links{display:grid;gap:.9rem;align-content:start}
+.links div{display:grid;gap:.1rem}
+.links b{font-weight:600}
+.links span{font-size:.95rem;color:var(--muted)}
+#copied{margin-top:.5rem;font-size:.9rem;min-height:1.4em}
 
-footer{border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+footer{font-size:.88rem;color:var(--muted)}
 footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
-@media (max-width:820px){
-  .hero-grid,.about-grid,.contact-grid,.two{grid-template-columns:minmax(0,1fr);gap:2rem}
-  .lines{grid-template-columns:minmax(0,1fr)}
-  .pub{grid-template-columns:minmax(0,1fr);gap:.4rem}
-  .pub .yr{order:-1}
-  .pub .tag{justify-self:start}
-  .row{grid-template-columns:minmax(0,1fr);gap:.15rem}
-  .compact li{grid-template-columns:3.5rem minmax(0,1fr);gap:.75rem}
-  section{padding-block:3.25rem}
-  .weeks{height:22px;gap:1px}
+[hidden]{display:none !important}
+.mob-only{display:none}
+@media (max-width:560px){.mob-only{display:inline-flex}}
+
+@media (max-width:860px){
+  .hero-grid,.about-grid,.contact{grid-template-columns:minmax(0,1fr)}
+  .areas{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}
+  .picker{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .areas{grid-template-columns:minmax(0,1fr)}
+  .pub{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .plain li{grid-template-columns:3.5rem minmax(0,1fr);gap:.8rem}
+  .timeline li{grid-template-columns:minmax(0,1fr);gap:.15rem}
+  .stage .nav{display:none}
 }
 </style>
 </head>
@@ -149,10 +206,12 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <a class="brand" href="#inicio">Francisco García Campos</a>
     <nav aria-label="Secciones"><ul>
-      <li><a href="#perfil">Perfil</a></li>
+      <li><a href="#trayectoria">Trayectoria</a></li>
       <li><a href="#areas">Áreas</a></li>
       <li><a href="#publicaciones">Publicaciones</a></li>
-      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#presentaciones">Presentaciones</a></li>
+      <li data-opt="fotos"><a href="#fotos">Fotos</a></li>
+      <li data-opt="videos"><a href="#videos">Videos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul></nav>
   </div>
@@ -163,30 +222,39 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="label">Epidemiología · Vigilancia en salud pública · Salta, Argentina</p>
-        <h1 style="margin-top:.75rem">Francisco García Campos</h1>
-        <p class="role">Bioquímico y epidemiólogo. Director General de Coordinación Epidemiológica del Ministerio de Salud Pública de Salta. Más de 35 años en salud pública, con foco en la vigilancia y la respuesta a brotes de enfermedades transmisibles.</p>
+        <p class="where">Epidemiología y vigilancia en salud pública, Salta</p>
+        <h1>Francisco García Campos</h1>
+        <p class="role">Bioquímico y epidemiólogo. Director General de Coordinación Epidemiológica del Ministerio de Salud Pública de Salta.</p>
         <div class="cta">
-          <a class="btn primary" href="#publicaciones">Publicaciones</a>
-          <a class="btn ghost" href="https://orcid.org/0000-0002-9362-4933" rel="noopener">ORCID</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">LinkedIn</a>
+          <a class="btn primary" href="#publicaciones">Ver publicaciones</a>
+          <a class="btn" href="https://orcid.org/0000-0002-9362-4933" rel="noopener">ORCID</a>
+          <a class="btn" href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <div class="stats">
-        <div><b class="num">35+</b><span>años en salud pública</span></div>
-        <div><b class="num">2007</b><span>inicio en la vigilancia epidemiológica provincial</span></div>
-        <div><b class="num">18</b><span>años en el Hospital Dr. Elías Anna, Colonia Santa Rosa</span></div>
-        <div><b class="num">2022</b><span>Director General de Coordinación Epidemiológica</span></div>
+      <div class="strata">
+        <svg viewBox="0 0 560 400" aria-hidden="true" focusable="false"><path d="M0 0H560V400H0Z" style="fill:var(--palu)"/><path d="M0 76.1 L10 78.6 L20 80.5 L30 81.6 L40 81.9 L50 81.6 L60 80.6 L70 79.0 L80 77.1 L90 74.8 L100 72.4 L110 70.0 L120 67.7 L130 65.6 L140 63.8 L150 62.3 L160 61.0 L170 60.0 L180 59.3 L190 58.6 L200 58.1 L210 57.5 L220 56.8 L230 55.9 L240 54.9 L250 53.6 L260 52.2 L270 50.8 L280 49.2 L290 47.8 L300 46.6 L310 45.7 L320 45.3 L330 45.3 L340 46.0 L350 47.4 L360 49.3 L370 51.9 L380 55.0 L390 58.6 L400 62.4 L410 66.3 L420 70.1 L430 73.7 L440 76.9 L450 79.6 L460 81.5 L470 82.7 L480 83.2 L490 82.8 L500 81.8 L510 80.1 L520 77.9 L530 75.3 L540 72.4 L550 69.6 L560 66.7 L560 400 L0 400Z" style="fill:var(--leish)"/><path d="M0 152.4 L10 150.3 L20 147.7 L30 144.6 L40 141.2 L50 137.7 L60 134.2 L70 130.8 L80 127.7 L90 125.0 L100 122.7 L110 120.9 L120 119.5 L130 118.5 L140 117.9 L150 117.5 L160 117.3 L170 117.1 L180 116.7 L190 116.3 L200 115.6 L210 114.6 L220 113.4 L230 111.9 L240 110.2 L250 108.5 L260 106.8 L270 105.3 L280 104.0 L290 103.2 L300 102.9 L310 103.2 L320 104.1 L330 105.7 L340 107.9 L350 110.6 L360 113.8 L370 117.4 L380 121.1 L390 124.9 L400 128.5 L410 131.9 L420 134.9 L430 137.5 L440 139.5 L450 141.1 L460 142.1 L470 142.7 L480 143.0 L490 143.0 L500 142.9 L510 142.7 L520 142.7 L530 142.7 L540 143.1 L550 143.6 L560 144.4 L560 400 L0 400Z" style="fill:var(--chagas)"/><path d="M0 203.9 L10 202.9 L20 201.6 L30 199.9 L40 198.2 L50 196.4 L60 194.7 L70 193.0 L80 191.6 L90 190.4 L100 189.3 L110 188.4 L120 187.5 L130 186.8 L140 186.0 L150 185.2 L160 184.4 L170 183.4 L180 182.4 L190 181.4 L200 180.4 L210 179.5 L220 178.8 L230 178.4 L240 178.4 L250 178.8 L260 179.8 L270 181.3 L280 183.3 L290 185.8 L300 188.7 L310 191.9 L320 195.3 L330 198.6 L340 201.8 L350 204.5 L360 206.8 L370 208.4 L380 209.1 L390 209.0 L400 208.1 L410 206.3 L420 203.7 L430 200.4 L440 196.6 L450 192.6 L460 188.4 L470 184.3 L480 180.5 L490 177.3 L500 174.6 L510 172.8 L520 171.7 L530 171.6 L540 172.2 L550 173.6 L560 175.6 L560 400 L0 400Z" style="fill:var(--arbo)"/><path d="M0 248.3 L10 244.9 L20 242.0 L30 239.5 L40 237.6 L50 236.2 L60 235.3 L70 234.9 L80 234.8 L90 234.9 L100 235.2 L110 235.6 L120 235.8 L130 236.0 L140 236.0 L150 235.8 L160 235.5 L170 235.1 L180 234.7 L190 234.4 L200 234.3 L210 234.6 L220 235.2 L230 236.3 L240 237.9 L250 240.1 L260 242.8 L270 246.0 L280 249.5 L290 253.3 L300 257.2 L310 261.1 L320 264.8 L330 268.0 L340 270.8 L350 272.9 L360 274.3 L370 275.0 L380 274.9 L390 274.2 L400 272.7 L410 270.8 L420 268.5 L430 265.9 L440 263.2 L450 260.5 L460 258.0 L470 255.7 L480 253.7 L490 252.0 L500 250.6 L510 249.5 L520 248.6 L530 247.8 L540 247.0 L550 246.2 L560 245.2 L560 400 L0 400Z" style="fill:var(--hanta)"/><path d="M0 309.8 L10 312.2 L20 314.9 L30 317.8 L40 320.6 L50 323.3 L60 325.7 L70 327.6 L80 328.9 L90 329.6 L100 329.5 L110 328.6 L120 327.0 L130 324.8 L140 322.1 L150 318.9 L160 315.5 L170 312.0 L180 308.7 L190 305.6 L200 302.9 L210 300.7 L220 299.2 L230 298.2 L240 297.9 L250 298.2 L260 299.0 L270 300.2 L280 301.7 L290 303.4 L300 305.0 L310 306.7 L320 308.1 L330 309.4 L340 310.3 L350 311.1 L360 311.6 L370 311.9 L380 312.1 L390 312.3 L400 312.6 L410 313.0 L420 313.6 L430 314.5 L440 315.6 L450 317.0 L460 318.5 L470 320.1 L480 321.7 L490 323.2 L500 324.5 L510 325.4 L520 325.8 L530 325.7 L540 325.0 L550 323.6 L560 321.6 L560 400 L0 400Z" style="fill:var(--vigil)"/></svg>
+        <div class="chips" aria-label="Áreas de trabajo">
+          <a class="chip" style="--c:var(--arbo)" href="#area-arbo">Arbovirosis</a>
+          <a class="chip" style="--c:var(--hanta)" href="#area-hanta">Hantavirus</a>
+          <a class="chip" style="--c:var(--leish)" href="#area-leish">Leishmaniasis</a>
+          <a class="chip" style="--c:var(--chagas)" href="#area-chagas">Chagas</a>
+          <a class="chip" style="--c:var(--palu)" href="#area-palu">Paludismo</a>
+          <a class="chip" style="--c:var(--vigil)" href="#area-vigil">Vigilancia y laboratorio</a>
+        </div>
       </div>
     </div>
-    <div class="weeks" id="weeks" aria-hidden="true"></div>
+    <div class="facts">
+      <div><b class="num">35+</b><span>años en salud pública</span></div>
+      <div><b class="num">18</b><span>años en el Hospital Dr. Elías Anna, Colonia Santa Rosa</span></div>
+      <div><b class="num">2007</b><span>ingreso a la vigilancia epidemiológica provincial</span></div>
+      <div><b class="num">2022</b><span>a cargo de la Coordinación Epidemiológica</span></div>
+    </div>
   </div>
 </section>
 
-<section id="perfil">
+<section class="band" id="trayectoria">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="label">Perfil</p>
+    <div class="head">
       <h2>Mi trayectoria</h2>
     </div>
     <div class="about-grid">
@@ -194,26 +262,26 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
         <p>Me recibí de bioquímico en la Universidad Nacional de Tucumán en 1988 y trabajé dieciocho años en el Hospital Dr. Elías Anna de Colonia Santa Rosa, donde fui jefe de laboratorio y vigilante epidemiológico del área operativa.</p>
         <p>Desde 2007 trabajo en la vigilancia epidemiológica de la provincia de Salta. Pasé por el Programa Chagas, la Vigilancia por Redes de Laboratorio (SIVILA) y el Programa de Vigilancia Epidemiológica, y desde 2022 dirijo la Coordinación Epidemiológica del Ministerio de Salud Pública.</p>
         <p>Conduje la respuesta a brotes de dengue, chikungunya y zika en el norte provincial, y participo en investigaciones sobre leishmaniasis, hantavirus y Chagas junto a equipos de la Universidad Nacional de Salta, el CONICET y la red nacional de laboratorios.</p>
-        <h3 class="sub" style="margin-top:1rem">Formación</h3>
-        <div class="rows">
-          <div class="row now"><span class="yr">En curso</span><div><b>Doctorado en Ciencias de la Salud</b><span class="where">Universidad Nacional de Salta</span></div></div>
-          <div class="row"><span class="yr num">2025</span><div><b>Magíster en Salud Pública, mención Atención Primaria de la Salud</b><span class="where">Universidad Nacional de Salta</span></div></div>
-          <div class="row"><span class="yr num">2024</span><div><b>Especialista en Epidemiología</b><span class="where">Colegio de Bioquímicos de Salta</span></div></div>
-          <div class="row"><span class="yr num">2016</span><div><b>Especialista en Salud Pública</b><span class="where">Universidad Nacional de Salta</span></div></div>
-          <div class="row"><span class="yr num">1988</span><div><b>Bioquímico</b><span class="where">Universidad Nacional de Tucumán</span></div></div>
-        </div>
-        <p style="font-size:.95rem;color:var(--muted)">También: Posgrado en Epidemiología Integral y Aplicada a la Gestión Sanitaria (UTN-FRBA, 505 h) y curso MOPECE de OPS/OMS (2018).</p>
+        <h3 class="col-title" style="margin-top:1.5rem">Formación</h3>
+        <ul class="timeline">
+          <li class="now"><span class="yr">En curso</span><div><b>Doctorado en Ciencias de la Salud</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">2025</span><div><b>Magíster en Salud Pública, mención Atención Primaria de la Salud</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">2024</span><div><b>Especialista en Epidemiología</b><small>Colegio de Bioquímicos de Salta</small></div></li>
+          <li><span class="yr num">2016</span><div><b>Especialista en Salud Pública</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">1988</span><div><b>Bioquímico</b><small>Universidad Nacional de Tucumán</small></div></li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">También: Posgrado en Epidemiología Integral y Aplicada a la Gestión Sanitaria (UTN-FRBA, 505 h) y curso MOPECE de OPS/OMS (2018).</p>
       </div>
       <div>
-        <p class="label" style="margin-bottom:.6rem">Trayectoria</p>
-        <div class="rows">
-          <div class="row now"><span class="yr num">2022 – hoy</span><div><b>Director General de Coordinación Epidemiológica</b><span class="where">Ministerio de Salud Pública de Salta</span></div></div>
-          <div class="row"><span class="yr num">2019 – 2022</span><div><b>Jefe del Programa de Vigilancia Epidemiológica</b><span class="where">Ministerio de Salud Pública de Salta</span></div></div>
-          <div class="row"><span class="yr num">2012 – 2019</span><div><b>Jefe del Programa de Vigilancia por Redes de Laboratorio (SIVILA)</b><span class="where">Ministerio de Salud Pública de Salta</span></div></div>
-          <div class="row"><span class="yr num">2010 – 2012</span><div><b>Jefe del Programa Chagas</b><span class="where">Ministerio de Salud Pública de Salta</span></div></div>
-          <div class="row"><span class="yr num">2007 – 2010</span><div><b>Profesional del Programa de Vigilancia Epidemiológica</b><span class="where">Ministerio de Salud Pública de Salta</span></div></div>
-          <div class="row"><span class="yr num">1988 – 2006</span><div><b>Bioquímico, jefe de laboratorio y vigilante epidemiológico</b><span class="where">Hospital Dr. Elías Anna, Colonia Santa Rosa</span></div></div>
-        </div>
+        <h3 class="col-title">Cargos</h3>
+        <ul class="timeline">
+          <li class="now"><span class="yr num">2022 – hoy</span><div><b>Director General de Coordinación Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2019 – 2022</span><div><b>Jefe del Programa de Vigilancia Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2012 – 2019</span><div><b>Jefe del Programa de Vigilancia por Redes de Laboratorio (SIVILA)</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2010 – 2012</span><div><b>Jefe del Programa Chagas</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2007 – 2010</span><div><b>Profesional del Programa de Vigilancia Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">1988 – 2006</span><div><b>Bioquímico, jefe de laboratorio y vigilante epidemiológico</b><small>Hospital Dr. Elías Anna, Colonia Santa Rosa</small></div></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -221,38 +289,38 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
 
 <section id="areas">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="label">Áreas de trabajo</p>
-      <h2>Eventos y líneas de investigación</h2>
+    <div class="head">
+      <h2>Áreas de trabajo</h2>
+      <p>Los eventos que sigo y las líneas de investigación en las que participo. Cada área conserva su color en todo el sitio.</p>
     </div>
-    <div class="lines">
-      <article class="line">
-        <p class="ch">Arbovirosis</p>
+    <div class="areas">
+      <article class="area" id="area-arbo" style="--c:var(--arbo);--cd:var(--arbo-d)">
+        <p class="kind">Arbovirosis</p>
         <h3>Dengue, chikungunya y zika</h3>
-        <p>Vigilancia y respuesta a brotes de dengue en Salta desde 2007, incluida la introducción de dengue 3 y la circulación simultánea de los serotipos 1 y 2. Respuesta al brote de chikungunya y caracterización clínica de un brote de zika. Manejo integrado y control de <i>Aedes aegypti</i> en el norte provincial.</p>
+        <p>Vigilancia y respuesta a brotes de dengue en Salta desde 2007, incluida la introducción de dengue 3 y la circulación simultánea de los serotipos 1 y 2. Respuesta al brote de chikungunya, caracterización clínica de un brote de zika y control de <i>Aedes aegypti</i> en el norte provincial.</p>
       </article>
-      <article class="line">
-        <p class="ch">Zoonosis</p>
+      <article class="area" id="area-hanta" style="--c:var(--hanta);--cd:var(--hanta-d)">
+        <p class="kind">Zoonosis</p>
         <h3>Hantavirus</h3>
         <p>Vigilancia del síndrome pulmonar por hantavirus y participación en la descripción de un nuevo orthohantavirus asociado a casos en el norte argentino (<i>Viruses</i>, 2025).</p>
       </article>
-      <article class="line">
-        <p class="ch">Enfermedades vectoriales</p>
+      <article class="area" id="area-leish" style="--c:var(--leish);--cd:var(--leish-d)">
+        <p class="kind">Enfermedades vectoriales</p>
         <h3>Leishmaniasis visceral</h3>
         <p>Caracterización clínica y eco-epidemiológica de los casos humanos en Salta entre 2008 y 2022, estudios de foco en zonas urbanas del norte provincial, estratificación de riesgo y vigilancia de reservorios caninos.</p>
       </article>
-      <article class="line">
-        <p class="ch">Enfermedades vectoriales</p>
+      <article class="area" id="area-chagas" style="--c:var(--chagas);--cd:var(--chagas-d)">
+        <p class="kind">Enfermedades vectoriales</p>
         <h3>Chagas</h3>
         <p>Modelo de intervención integral en un área de difícil acceso (Alto de la Sierra) y evaluación de campo de pruebas de diagnóstico rápido para la infección por <i>Trypanosoma cruzi</i>.</p>
       </article>
-      <article class="line">
-        <p class="ch">Eliminación</p>
+      <article class="area" id="area-palu" style="--c:var(--palu);--cd:var(--palu-d)">
+        <p class="kind">Eliminación</p>
         <h3>Paludismo</h3>
         <p>Colaboración técnica con el Ministerio de Salud de la Nación en el marco de certificación de la eliminación del paludismo y en el plan de prevención de su restablecimiento en Argentina (2018).</p>
       </article>
-      <article class="line">
-        <p class="ch">Sistemas de información</p>
+      <article class="area" id="area-vigil" style="--c:var(--vigil);--cd:var(--vigil-d)">
+        <p class="kind">Sistemas de información</p>
         <h3>Vigilancia y redes de laboratorio</h3>
         <p>Organización de la red provincial de laboratorios, implementación del SIVILA y del SNVS 2.0, y capacitación de equipos en la notificación de los Eventos de Notificación Obligatoria.</p>
       </article>
@@ -260,160 +328,189 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
   </div>
 </section>
 
-<section id="publicaciones">
+<section class="band" id="publicaciones">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="label">Publicaciones</p>
-      <h2>Artículos y libros</h2>
+    <div class="head">
+      <h2>Publicaciones</h2>
+      <p>Artículos y libros. Los de acceso abierto se pueden descargar.</p>
     </div>
     <div class="pubs">
-      <article class="pub">
+      <article class="pub" style="--c:var(--hanta)">
         <span class="yr num">2025</span>
         <div>
           <h3>Novel Orthohantavirus Associated with Hantavirus Pulmonary Syndrome in Northern Argentina</h3>
           <p>Bellomo CM, … García Campos F, et al. <i>Viruses</i>. 2025;17:717. <a href="https://doi.org/10.3390/v17050717" rel="noopener">doi:10.3390/v17050717</a></p>
+          <div class="meta"><span class="kind-tag">Hantavirus · artículo</span></div>
         </div>
-        <span class="tag ok">Artículo</span>
       </article>
-      <article class="pub">
+      <article class="pub" style="--c:var(--leish)">
         <span class="yr num">2025</span>
         <div>
           <h3>Vigilancia sanitaria de reservorios caninos de leishmaniasis visceral: el caso de Salta en 2023</h3>
           <p>Gieco A, Tapia E, Huidobro N, García Campos F, et al. <i>Vigilância Sanitária em Debate</i>. 2025;13:e02414. <a href="https://doi.org/10.22239/2317-269X.02414" rel="noopener">doi:10.22239/2317-269X.02414</a></p>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · artículo</span></div>
         </div>
-        <span class="tag ok">Artículo</span>
       </article>
-      <article class="pub">
+      <article class="pub" style="--c:var(--leish)">
         <span class="yr num">2025</span>
         <div>
           <h3>Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en la Provincia de Salta, 2008–2022</h3>
           <p>García Campos FM, Barroso P. Obra con registro de propiedad intelectual.</p>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · libro</span></div>
         </div>
-        <span class="tag ok">Libro</span>
       </article>
-      <article class="pub">
+      <article class="pub" style="--c:var(--leish)">
         <span class="yr num">2024</span>
         <div>
           <h3>Clinical characterization and epidemiological aspects of human visceral leishmaniasis in the province of Salta, 2008–2022</h3>
           <p>García Campos FM, Tapia E, Serrat JH, Ruiz de Huidobro N, García Bustos MF, Basombrío M, Marco JD, Barroso PA. <i>International Journal of Health Science</i>. 2024;4(87). <a href="https://doi.org/10.22533/at.ed.1594872424095" rel="noopener">doi:10.22533/at.ed.1594872424095</a></p>
-          <a class="dl" href="documentos/garcia-campos-2024-ijhs-leishmaniasis-visceral-salta.pdf" download>Descargar PDF <small>1,9 MB · CC BY-NC-ND 4.0</small></a>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · artículo</span><a class="btn small" href="documentos/garcia-campos-2024-ijhs-leishmaniasis-visceral-salta.pdf" download>Descargar PDF <small>1,9 MB · CC BY-NC-ND 4.0</small></a></div>
         </div>
-        <span class="tag ok">Artículo</span>
       </article>
-      <article class="pub">
+      <article class="pub" style="--c:var(--chagas)">
         <span class="yr num">2020</span>
         <div>
           <h3>Rapid Diagnostic Tests for <i>Trypanosoma cruzi</i> Infection: Field Evaluation of Two Registered Kits in a Region of Endemicity and a Region of Nonendemicity in Argentina</h3>
           <p>Lopez-Albizu C, Danesi E, Piorno P, Fernandez M, García Campos F, Scollo K, Crudo F. <i>Journal of Clinical Microbiology</i>. 2020;58(12):e01140-20. <a href="https://doi.org/10.1128/JCM.01140-20" rel="noopener">doi:10.1128/JCM.01140-20</a></p>
-          <a class="dl" href="documentos/lopez-albizu-2020-jcm-pruebas-rapidas-trypanosoma-cruzi.pdf" download>Descargar PDF <small>0,8 MB · CC BY 4.0</small></a>
+          <div class="meta"><span class="kind-tag">Chagas · artículo</span><a class="btn small" href="documentos/lopez-albizu-2020-jcm-pruebas-rapidas-trypanosoma-cruzi.pdf" download>Descargar PDF <small>0,8 MB · CC BY 4.0</small></a></div>
         </div>
-        <span class="tag ok">Artículo</span>
       </article>
-      <article class="pub">
+      <article class="pub" style="--c:var(--chagas)">
         <span class="yr num">2011</span>
         <div>
           <h3>Modelo de intervención integral en prevención y atención de Chagas en un área inaccesible de la provincia de Salta. Alto de la Sierra, Salta</h3>
           <p>García Campos FM, Rangeon G, Cachavilano O, Gentile AJ. <i>Revista Médica de Salta</i>. 2011;(40):40–47.</p>
+          <div class="meta"><span class="kind-tag">Chagas · artículo</span></div>
         </div>
-        <span class="tag ok">Artículo</span>
       </article>
     </div>
-    <p class="pub-note">Los artículos se ofrecen en la versión publicada por cada revista, según su licencia de acceso abierto. Para citarlos, usá la referencia y el DOI de la publicación original.</p>
+    <p class="note">Los artículos descargables están en la versión publicada por cada revista, según su licencia de acceso abierto. Para citarlos, usá la referencia y el DOI de la publicación original.</p>
 
     <h3 class="sub">Documentos técnicos y normativos</h3>
-    <div class="compact"><ul>
-      <li><span class="yr num">2018</span><span>Eliminación del paludismo en Argentina: documento base del Plan de prevención del restablecimiento del paludismo y marco de certificación de la eliminación. <em>Colaborador técnico · Ministerio de Salud de la Nación.</em></span></li>
-      <li><span class="yr num">2014</span><span>Normas de diagnóstico, tratamiento y seguimiento de la toxoplasmosis aguda en la embarazada y toxoplasmosis congénita. <em>Editor responsable · DGCE Salta.</em></span></li>
-      <li><span class="yr num">2007</span><span>Meningoencefalitis. Normas de diagnóstico y tratamiento. Resolución Ministerial Nº 3630. <em>Editor responsable · Salta.</em></span></li>
-    </ul></div>
+    <ul class="plain">
+      <li><span class="yr num">2018</span><span><span class="dot" style="--c:var(--palu)"></span>Eliminación del paludismo en Argentina: documento base del Plan de prevención del restablecimiento del paludismo y marco de certificación de la eliminación. <em>Colaborador técnico, Ministerio de Salud de la Nación.</em></span></li>
+      <li><span class="yr num">2014</span><span><span class="dot" style="--c:var(--vigil)"></span>Normas de diagnóstico, tratamiento y seguimiento de la toxoplasmosis aguda en la embarazada y toxoplasmosis congénita. <em>Editor responsable, DGCE Salta.</em></span></li>
+      <li><span class="yr num">2007</span><span><span class="dot" style="--c:var(--vigil)"></span>Meningoencefalitis. Normas de diagnóstico y tratamiento. Resolución Ministerial Nº 3630. <em>Editor responsable, Salta.</em></span></li>
+    </ul>
   </div>
 </section>
 
-<section id="actividades">
+<section id="presentaciones">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="label">Actividades científicas</p>
-      <h2>Congresos, jornadas y docencia</h2>
+    <div class="head">
+      <h2>Presentaciones</h2>
+      <p>Elegí una presentación para verla acá mismo. Pasa sola, o la podés recorrer con las flechas. Si necesitás el archivo, pedímelo con el botón de abajo.</p>
     </div>
 
-    <p class="label">Presentaciones para consultar</p>
-    <div class="docs">
-      <article class="doc">
-        <p class="label num">2026</p>
-        <h4>Uso de Pruebas de Diagnóstico Rápido (PDR) para la enfermedad de Chagas. Experiencia en Salta</h4>
-        <p>Jornadas de Salud Territorial: implementación de la estrategia ETMI Plus y atención equitativa. Del piloto de Alto la Sierra a la evaluación de campo publicada en <i>J Clin Microbiol</i> (2020).</p>
-        <a class="dl" href="documentos/garcia-campos-2026-pruebas-rapidas-chagas-salta.pdf" download>Descargar PDF <small>2,3 MB</small></a>
-      </article>
-      <article class="doc">
-        <p class="label num">2025</p>
-        <h4>Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en la provincia de Salta, 2008–2022</h4>
-        <p>Presentación de la defensa de tesis de Maestría en Salud Pública con mención en APS. Universidad Nacional de Salta, 25 de marzo de 2025. Dirección: Dra. Paola A. Barroso.</p>
-        <a class="dl" href="documentos/garcia-campos-2025-tesis-maestria-leishmaniasis-visceral-presentacion.pdf" download>Descargar PDF <small>5,1 MB</small></a>
-      </article>
+    <div class="picker" role="tablist" aria-label="Elegir presentación">
+      <button class="pick" role="tab" id="pick-pdr" aria-selected="true" style="--c:var(--chagas);--cd:var(--chagas-d)" data-pres="0">
+        <span class="yr num">2026 · Jornadas de Salud Territorial, ETMI Plus</span>
+        <span class="t">Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta</span>
+      </button>
+      <button class="pick" role="tab" id="pick-tesis" aria-selected="false" style="--c:var(--leish);--cd:var(--leish-d)" data-pres="1">
+        <span class="yr num">2025 · Defensa de tesis de Maestría, UNSa</span>
+        <span class="t">Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en Salta, 2008–2022</span>
+      </button>
     </div>
-    <p class="pub-note">Las presentaciones se comparten bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" rel="noopener">Creative Commons BY-NC-ND 4.0</a>: podés consultarlas y compartirlas citando al autor, pero no usarlas con fines comerciales ni modificarlas. Para citar: García Campos FM. <i>Título de la presentación</i>. Salta, año. Disponible en franciscogarciacampos.com. Para usar imágenes o datos puntuales, escribime.</p>
+
+    <div class="viewer" id="viewer" role="tabpanel" aria-labelledby="pick-pdr" style="--cd:var(--chagas-d)">
+      <div class="stage" id="stage" aria-live="polite">
+        <img id="slide" alt="" draggable="false" hidden>
+        <p class="msg" id="msg">Cargando la presentación…</p>
+        <button class="nav prev" id="prev" type="button" aria-label="Diapositiva anterior">‹</button>
+        <button class="nav next" id="next" type="button" aria-label="Diapositiva siguiente">›</button>
+      </div>
+      <div class="controls">
+        <div class="left">
+          <button class="btn small mob-only" id="prev2" type="button" aria-label="Diapositiva anterior">‹ Anterior</button>
+          <button class="btn small mob-only" id="next2" type="button" aria-label="Diapositiva siguiente">Siguiente ›</button>
+          <button class="btn small" id="play" type="button">Pausar</button>
+          <button class="btn small" id="full" type="button">Pantalla completa</button>
+        </div>
+        <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+        <span class="counter num" id="counter">– / –</span>
+      </div>
+      <div class="viewer-foot">
+        <span>© Francisco M. García Campos. Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" rel="noopener">CC BY-NC-ND 4.0</a>: citar la fuente, sin uso comercial ni modificaciones.</span>
+        <a class="btn small primary" id="ask" href="#">Solicitar esta presentación</a>
+      </div>
+    </div>
 
     <h3 class="sub">Congresos y jornadas</h3>
-    <div class="compact"><ul>
-      <li><span class="yr num">2026</span><span>Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta. <em>Jornadas de Salud Territorial · ETMI Plus · Disertante.</em></span></li>
-      <li><span class="yr num">2026</span><span>Chikungunya: epidemiología, clínica y seguimiento de casos en Salta. <em>Jornadas de Enfermedades Emergentes · Disertante.</em></span></li>
-      <li><span class="yr num">2025</span><span>Gestión de brotes. <em>XXV Congreso Argentino de Infectología (SADI) · Disertante.</em></span></li>
-      <li><span class="yr num">2025</span><span>Defensa de la tesis de Maestría sobre leishmaniasis visceral humana en Salta, 2008–2022. <em>Universidad Nacional de Salta.</em></span></li>
-      <li><span class="yr num">2023</span><span>Caracterización clínica y aspectos epidemiológicos de la leishmaniasis visceral humana en Salta, 2008–2022. <em>XXI Simposio Internacional Mundo Sano.</em></span></li>
-      <li><span class="yr num">2022</span><span>Estudio de foco de la leishmaniasis visceral en zonas urbanas del norte de Salta. <em>IX Congreso Argentino de Parasitología, Salta.</em></span></li>
-      <li><span class="yr num">2022</span><span>Tercera ola de COVID-19 por variante Ómicron: la experiencia de Salta en epidemiología basada en aguas residuales. <em>Primer Workshop «One Health», red PANACEA · con V. Rajal.</em></span></li>
-      <li><span class="yr num">2019</span><span>Disertante e integrante de mesa redonda. <em>XXII Jornadas de Enfermedades Infecciosas Emergentes y Reemergentes, Salta.</em></span></li>
-      <li><span class="yr num">2019</span><span>Leishmaniasis visceral: vigilancia epidemiológica y estratificación de riesgo. <em>8º Encuentro de Vigilancia Epidemiológica y Redes de Laboratorio/SIVILA.</em></span></li>
-      <li><span class="yr num">2018</span><span>Análisis de patologías relevantes de la región. <em>Encuentro Binacional Argentina–Bolivia, Tarija.</em></span></li>
-      <li><span class="yr num">2017</span><span>Caracterización clínica de un brote de zika. <em>XVII Congreso de la Sociedad Argentina de Infectología.</em></span></li>
-      <li><span class="yr num">2016</span><span>Brote de chikungunya en Salta. <em>VIII Reunión de la Red Nacional de Laboratorios de Dengue y otros Arbovirus, Pergamino.</em></span></li>
-      <li><span class="yr num">2007</span><span>Avances en vigilancia y control de brotes de dengue en la provincia de Salta. <em>Segundo Encuentro de Epidemiólogos de Campo.</em></span></li>
-      <li><span class="yr num">2003</span><span>Introducción del virus dengue 3 y circulación simultánea de dengue 1 y dengue 2 en la Argentina. <em>Congreso Latinoamericano de Microbiología.</em></span></li>
-    </ul></div>
+    <ul class="plain">
+      <li><span class="yr num">2026</span><span><span class="dot" style="--c:var(--chagas)"></span>Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta. <em>Jornadas de Salud Territorial, ETMI Plus. Disertante.</em></span></li>
+      <li><span class="yr num">2026</span><span><span class="dot" style="--c:var(--arbo)"></span>Chikungunya: epidemiología, clínica y seguimiento de casos en Salta. <em>Jornadas de Enfermedades Emergentes. Disertante.</em></span></li>
+      <li><span class="yr num">2025</span><span><span class="dot" style="--c:var(--vigil)"></span>Gestión de brotes. <em>XXV Congreso Argentino de Infectología (SADI). Disertante.</em></span></li>
+      <li><span class="yr num">2025</span><span><span class="dot" style="--c:var(--leish)"></span>Defensa de la tesis de Maestría sobre leishmaniasis visceral humana en Salta, 2008–2022. <em>Universidad Nacional de Salta.</em></span></li>
+      <li><span class="yr num">2023</span><span><span class="dot" style="--c:var(--leish)"></span>Caracterización clínica y aspectos epidemiológicos de la leishmaniasis visceral humana en Salta, 2008–2022. <em>XXI Simposio Internacional Mundo Sano.</em></span></li>
+      <li><span class="yr num">2022</span><span><span class="dot" style="--c:var(--leish)"></span>Estudio de foco de la leishmaniasis visceral en zonas urbanas del norte de Salta. <em>IX Congreso Argentino de Parasitología, Salta.</em></span></li>
+      <li><span class="yr num">2022</span><span><span class="dot" style="--c:var(--vigil)"></span>Tercera ola de COVID-19 por variante Ómicron: la experiencia de Salta en epidemiología basada en aguas residuales. <em>Primer Workshop «One Health», red PANACEA, con V. Rajal.</em></span></li>
+      <li><span class="yr num">2019</span><span><span class="dot" style="--c:var(--vigil)"></span>Disertante e integrante de mesa redonda. <em>XXII Jornadas de Enfermedades Infecciosas Emergentes y Reemergentes, Salta.</em></span></li>
+      <li><span class="yr num">2019</span><span><span class="dot" style="--c:var(--leish)"></span>Leishmaniasis visceral: vigilancia epidemiológica y estratificación de riesgo. <em>8º Encuentro de Vigilancia Epidemiológica y Redes de Laboratorio/SIVILA.</em></span></li>
+      <li><span class="yr num">2018</span><span><span class="dot" style="--c:var(--vigil)"></span>Análisis de patologías relevantes de la región. <em>Encuentro Binacional Argentina–Bolivia, Tarija.</em></span></li>
+      <li><span class="yr num">2017</span><span><span class="dot" style="--c:var(--arbo)"></span>Caracterización clínica de un brote de zika. <em>XVII Congreso de la Sociedad Argentina de Infectología.</em></span></li>
+      <li><span class="yr num">2016</span><span><span class="dot" style="--c:var(--arbo)"></span>Brote de chikungunya en Salta. <em>VIII Reunión de la Red Nacional de Laboratorios de Dengue y otros Arbovirus, Pergamino.</em></span></li>
+      <li><span class="yr num">2007</span><span><span class="dot" style="--c:var(--arbo)"></span>Avances en vigilancia y control de brotes de dengue en la provincia de Salta. <em>Segundo Encuentro de Epidemiólogos de Campo.</em></span></li>
+      <li><span class="yr num">2003</span><span><span class="dot" style="--c:var(--arbo)"></span>Introducción del virus dengue 3 y circulación simultánea de dengue 1 y dengue 2 en la Argentina. <em>Congreso Latinoamericano de Microbiología.</em></span></li>
+    </ul>
 
-    <div class="two">
+    <div class="about-grid" style="margin-top:1rem">
       <div>
         <h3 class="sub">Docencia</h3>
-        <div class="compact"><ul>
+        <ul class="plain">
           <li><span class="yr num">2022</span><span>Director y docente del curso Herramientas básicas de vigilancia y registro de los ENO <em>(100 h).</em></span></li>
           <li><span class="yr num">2019–22</span><span>Docente de la Residencia de Epidemiología de Campo, DGCE.</span></li>
           <li><span class="yr num">2014</span><span>Coordinador y docente del Curso de Epidemiología Básica y Vigilancia de la Salud <em>(400 h).</em></span></li>
-        </ul></div>
+        </ul>
       </div>
       <div>
         <h3 class="sub">Reconocimientos</h3>
-        <div class="compact"><ul>
+        <ul class="plain">
           <li><span class="yr num">2021</span><span>Reconocimiento del Ministerio de Salud de la Nación por su trayectoria en epidemiología y su trabajo con la red federal.</span></li>
           <li><span class="yr num">2019</span><span>«Por una Argentina libre de Chagas». Hospital Melchora Figueroa de Cornejo, Rosario de la Frontera.</span></li>
-        </ul></div>
+        </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="band" id="fotos" hidden>
+  <div class="wrap">
+    <div class="head">
+      <h2>Fotos</h2>
+      <p>Trabajo de campo, jornadas y equipos. Tocá una foto para verla más grande.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section id="videos" hidden>
+  <div class="wrap">
+    <div class="head">
+      <h2>Videos</h2>
+      <p>Charlas y entrevistas publicadas en YouTube.</p>
+    </div>
+    <div class="videos" id="video-list"></div>
   </div>
 </section>
 
 <section id="contacto">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="label">Contacto</p>
-      <h2>Consultas y colaboraciones</h2>
-    </div>
-    <div class="contact-grid">
+    <div class="contact">
       <div>
-        <p>Para consultas, invitaciones a jornadas o colaboraciones en vigilancia epidemiológica, escribime a:</p>
+        <h2>Contacto</h2>
+        <p>Para consultas, invitaciones a jornadas, pedidos de presentaciones o colaboraciones en vigilancia epidemiológica, escribime.</p>
         <div class="mail">
           <code id="email">pacogarciacampos1964@gmail.com</code>
-          <button type="button" id="copy">Copiar</button>
+          <button class="btn small" type="button" id="copy">Copiar</button>
         </div>
-        <p class="label" id="copied" style="margin-top:.5rem" aria-live="polite"></p>
-        <div class="ids">
-          <div><span class="label">ORCID</span><a href="https://orcid.org/0000-0002-9362-4933" rel="noopener">0000-0002-9362-4933</a></div>
-          <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">francisco-garcía-campos</a></div>
-        </div>
+        <p id="copied" aria-live="polite"></p>
       </div>
-      <div class="aff">
+      <div class="links">
         <div><b>Ministerio de Salud Pública de Salta</b><span>Dirección General de Coordinación Epidemiológica</span></div>
         <div><b>Universidad Nacional de Salta</b><span>Doctorado en Ciencias de la Salud</span></div>
-        <div><b>Salta, Argentina</b></div>
+        <div><b>ORCID</b><span><a href="https://orcid.org/0000-0002-9362-4933" rel="noopener">0000-0002-9362-4933</a></span></div>
+        <div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">francisco-garcía-campos</a></span></div>
       </div>
     </div>
   </div>
@@ -422,20 +519,184 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> Francisco García Campos</span><span>Salta, Argentina</span></div></footer>
 
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+  <button class="close" type="button" id="lb-close" aria-label="Cerrar">×</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
 <script>
-(function(){
-  var w=document.getElementById('weeks');
-  var pat=[0,0,0,1,1,0,0,0,0,1,1,2,2,1,0,0,0,1,2,4,4,2,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,2,1,0,0,0,0,0,1,1,0,0,0,0,0,0];
-  for(var i=0;i<52;i++){var s=document.createElement('span');if(pat[i])s.className='l'+pat[i];w.appendChild(s);}
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  var b=document.getElementById('copy'),m=document.getElementById('copied'),e=document.getElementById('email');
-  b.addEventListener('click',function(){
-    var t=e.textContent;
-    function sel(){var r=document.createRange();r.selectNodeContents(e);var g=window.getSelection();g.removeAllRanges();g.addRange(r);m.textContent='Dirección seleccionada: copiala con Ctrl+C';}
-    try{navigator.clipboard.writeText(t).then(function(){m.textContent='Dirección copiada';},sel);}catch(err){sel();}
-  });
-})();
+/* =====================================================================
+   CONTENIDO EDITABLE
+   Para agregar fotos: subí la imagen a la carpeta "fotos" del repositorio
+   y agregá una línea con el nombre del archivo y el texto que la acompaña.
+   Para agregar videos: copiá el código del video de YouTube (lo que va
+   después de "v=" o de "youtu.be/") y agregá una línea con el título.
+   ===================================================================== */
+var FOTOS = [
+  // { archivo: "fotos/ejemplo.jpg", pie: "Descripción de la foto" },
+];
+var VIDEOS = [
+  // { id: "CODIGO_DE_YOUTUBE", titulo: "Título del video" },
+];
+var PRESENTACIONES = [
+  { clave: "pdr", archivo: "presentacion-pdr.js", color: "--chagas-d",
+    titulo: "Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta" },
+  { clave: "tesis", archivo: "presentacion-tesis.js", color: "--leish-d",
+    titulo: "Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en Salta, 2008-2022 (tesis de Maestría)" }
+];
+var CORREO = "pacogarciacampos1964@gmail.com";
+var SEGUNDOS_POR_DIAPOSITIVA = 6;
 </script>
 
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* correo */
+  var b=document.getElementById('copy'), m=document.getElementById('copied'), e=document.getElementById('email');
+  b.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(e);var g=window.getSelection();g.removeAllRanges();g.addRange(r);m.textContent='Dirección seleccionada: copiala con Ctrl+C';}
+    try{navigator.clipboard.writeText(e.textContent).then(function(){m.textContent='Dirección copiada';},sel);}catch(err){sel();}
+  });
+
+  /* ---------- visor de presentaciones ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var img=document.getElementById('slide'), stage=document.getElementById('stage'), msg=document.getElementById('msg');
+  var counter=document.getElementById('counter'), bar=document.getElementById('bar');
+  var playBtn=document.getElementById('play'), viewer=document.getElementById('viewer'), ask=document.getElementById('ask');
+  var slides=null, page=1, total=0, cur=-1, timer=null, playing=!reduce, visible=false, loading={};
+  window.DIAPOSITIVAS = window.DIAPOSITIVAS || {};
+
+  stage.addEventListener('contextmenu',function(ev){ev.preventDefault();});
+
+  function setAsk(i){
+    var p=PRESENTACIONES[i];
+    ask.href='mailto:'+CORREO+'?subject='+encodeURIComponent('Solicitud de presentación: '+p.titulo)+
+      '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera solicitar la presentación "'+p.titulo+'".\n\nNombre:\nInstitución:\nUso previsto:\n\nGracias.');
+  }
+  function updatePlay(){ playBtn.textContent = playing ? 'Pausar' : 'Reproducir'; playBtn.setAttribute('aria-pressed', playing?'false':'true'); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  function start(){ stop(); if(playing && visible && slides){ timer=setInterval(function(){ go(page<total?page+1:1); }, SEGUNDOS_POR_DIAPOSITIVA*1000); } }
+  function go(n){
+    if(!slides) return;
+    page=n; img.src=slides[n-1]; img.hidden=false; msg.hidden=true;
+    img.onload=function(){ if(img.naturalWidth){ stage.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); } };
+    img.alt='Diapositiva '+n+' de '+total;
+    counter.textContent=n+' / '+total; bar.style.width=(n/total*100)+'%';
+    if(n<total){ var pre=new Image(); pre.src=slides[n]; }
+  }
+  function fetchSlides(p, done, fail){
+    if(window.DIAPOSITIVAS[p.clave]){ done(window.DIAPOSITIVAS[p.clave]); return; }
+    if(loading[p.clave]){ loading[p.clave].push([done,fail]); return; }
+    loading[p.clave]=[[done,fail]];
+    var s=document.createElement('script'); s.src=p.archivo; s.async=true;
+    s.onload=function(){ var l=loading[p.clave]; delete loading[p.clave];
+      l.forEach(function(cb){ window.DIAPOSITIVAS[p.clave] ? cb[0](window.DIAPOSITIVAS[p.clave]) : cb[1](); }); };
+    s.onerror=function(){ var l=loading[p.clave]; delete loading[p.clave]; s.remove(); l.forEach(function(cb){ cb[1](); }); };
+    document.head.appendChild(s);
+  }
+  function load(i){
+    if(i===cur) return;
+    cur=i; stop(); slides=null; page=1; total=0;
+    var p=PRESENTACIONES[i];
+    viewer.style.setProperty('--cd','var('+p.color+')');
+    viewer.setAttribute('aria-labelledby', i===0?'pick-pdr':'pick-tesis');
+    setAsk(i);
+    img.hidden=true; msg.hidden=false; msg.textContent='Cargando la presentación…';
+    counter.textContent='– / –'; bar.style.width='0';
+    fetchSlides(p, function(list){
+      if(cur!==i) return;
+      slides=list; total=list.length; go(1); start();
+    }, function(){
+      if(cur!==i) return;
+      msg.textContent='No se pudo cargar la presentación. Podés pedirla con el botón «Solicitar esta presentación».';
+    });
+  }
+
+  document.querySelectorAll('.pick').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.pick').forEach(function(o){o.setAttribute('aria-selected', o===btn?'true':'false');});
+      load(+btn.dataset.pres);
+    });
+  });
+  document.getElementById('prev').addEventListener('click',function(){ if(slides){ go(page>1?page-1:total); start(); } });
+  document.getElementById('next').addEventListener('click',function(){ if(slides){ go(page<total?page+1:1); start(); } });
+  document.getElementById('prev2').addEventListener('click',function(){ document.getElementById('prev').click(); });
+  document.getElementById('next2').addEventListener('click',function(){ document.getElementById('next').click(); });
+  playBtn.addEventListener('click',function(){ playing=!playing; updatePlay(); if(playing) start(); else stop(); });
+  document.getElementById('full').addEventListener('click',function(){
+    if(document.fullscreenElement){ document.exitFullscreen(); }
+    else if(stage.requestFullscreen){ stage.requestFullscreen(); }
+    else if(stage.webkitRequestFullscreen){ stage.webkitRequestFullscreen(); }
+  });
+  viewer.addEventListener('keydown',function(ev){
+    if(ev.target.closest && ev.target.closest('a')) return;
+    if(ev.key==='ArrowRight'){ document.getElementById('next').click(); ev.preventDefault(); }
+    if(ev.key==='ArrowLeft'){ document.getElementById('prev').click(); ev.preventDefault(); }
+  });
+  var sx=null;
+  stage.addEventListener('touchstart',function(ev){ sx=ev.touches[0].clientX; },{passive:true});
+  stage.addEventListener('touchend',function(ev){
+    if(sx===null) return; var dx=ev.changedTouches[0].clientX-sx; sx=null;
+    if(Math.abs(dx)>40){ document.getElementById(dx<0?'next':'prev').click(); }
+  });
+
+  updatePlay(); setAsk(0);
+  /* se carga cuando la sección aparece en pantalla, y solo pasa sola mientras se ve */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && cur<0) load(0);
+    },{rootMargin:'300px 0px'}).observe(document.getElementById('presentaciones'));
+    new IntersectionObserver(function(entries){
+      visible=entries[0].isIntersecting;
+      if(visible) start(); else stop();
+    },{threshold:.5}).observe(stage);
+  } else { visible=true; load(0); }
+
+  /* ---------- fotos ---------- */
+  if(FOTOS.length){
+    var g=document.getElementById('gallery'), lb=document.getElementById('lightbox');
+    FOTOS.forEach(function(f){
+      var fig=document.createElement('figure');
+      var bt=document.createElement('button'); bt.type='button'; bt.setAttribute('aria-label','Ampliar: '+(f.pie||'foto'));
+      var im=document.createElement('img'); im.src=f.archivo; im.alt=f.pie||''; im.loading='lazy';
+      bt.appendChild(im); fig.appendChild(bt);
+      if(f.pie){ var c=document.createElement('figcaption'); c.textContent=f.pie; fig.appendChild(c); }
+      bt.addEventListener('click',function(){
+        document.getElementById('lb-img').src=f.archivo; document.getElementById('lb-img').alt=f.pie||'';
+        document.getElementById('lb-cap').textContent=f.pie||'';
+        if(lb.showModal) lb.showModal(); else window.open(f.archivo);
+      });
+      g.appendChild(fig);
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){ lb.close(); });
+    lb.addEventListener('click',function(ev){ if(ev.target===lb) lb.close(); });
+    document.getElementById('fotos').hidden=false;
+  } else { document.querySelector('[data-opt="fotos"]').hidden=true; }
+
+  /* ---------- videos ---------- */
+  if(VIDEOS.length){
+    var vl=document.getElementById('video-list');
+    VIDEOS.forEach(function(v){
+      var art=document.createElement('article'); art.className='video';
+      var fr=document.createElement('div'); fr.className='frame';
+      var bt=document.createElement('button'); bt.type='button'; bt.setAttribute('aria-label','Reproducir: '+v.titulo);
+      var im=document.createElement('img'); im.src='https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg'; im.alt=''; im.loading='lazy';
+      var pl=document.createElement('span'); pl.className='play'; pl.textContent='▶';
+      bt.appendChild(im); bt.appendChild(pl); fr.appendChild(bt);
+      bt.addEventListener('click',function(){
+        var ifr=document.createElement('iframe');
+        ifr.src='https://www.youtube-nocookie.com/embed/'+v.id+'?autoplay=1&rel=0';
+        ifr.title=v.titulo; ifr.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; ifr.allowFullscreen=true;
+        fr.innerHTML=''; fr.appendChild(ifr);
+      });
+      var h=document.createElement('h3'); h.textContent=v.titulo;
+      art.appendChild(fr); art.appendChild(h); vl.appendChild(art);
+    });
+    document.getElementById('videos').hidden=false;
+  } else { document.querySelector('[data-opt="videos"]').hidden=true; }
+})();
+</script>
 </body>
 </html>
