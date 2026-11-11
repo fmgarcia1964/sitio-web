@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Módulo 2 · Vigilancia epidemiológica</title>
-<meta name="description" content="Módulo 2 de la Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental (UPATecO, 2026): clases, guía de estudio, ficha de normas y bibliografía. Docente: Dr. Francisco García Campos.">
+<title>Francisco García Campos</title>
+<meta name="description" content="Francisco García Campos, bioquímico y epidemiólogo. Director General de Coordinación Epidemiológica del Ministerio de Salud Pública de Salta. Vigilancia de arbovirosis, hantavirus, leishmaniasis y Chagas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
-
 /* Paleta: estratos pastel de los valles salteños. Cada área de trabajo tiene su color y lo conserva en todo el sitio. */
 :root{
   --paper:#f7f8fb; --surface:#ffffff; --ink:#2b2f3a; --muted:#5e6472; --line:#e3e5ec;
@@ -182,6 +181,12 @@ dialog.lightbox .close{position:absolute;top:.4rem;right:.4rem;width:40px;height
 footer{font-size:.88rem;color:var(--muted)}
 footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
+.dip{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:center;background:var(--vigil);border-radius:var(--r-lg);padding:clamp(1.5rem,4vw,2.5rem)}
+.dip h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-top:.5rem}
+.dip p{margin-top:.8rem}
+.dip .btn{margin-top:1.3rem}
+.dip img{display:block;width:100%;height:auto;border-radius:var(--r-md)}
+@media (max-width:860px){.dip{grid-template-columns:minmax(0,1fr)}}
 [hidden]{display:none !important}
 .mob-only{display:none}
 @media (max-width:560px){.mob-only{display:inline-flex}}
@@ -199,356 +204,520 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
   .timeline li{grid-template-columns:minmax(0,1fr);gap:.15rem}
   .stage .nav{display:none}
 }
-
-/* ---- propio del Módulo 2 ---- */
-.m2-hero{padding-block:clamp(2.5rem,6vw,4rem)}
-.m2-hero .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,5vw,3.5rem);align-items:center}
-.m2-hero .course{font-weight:500;color:var(--muted);max-width:36rem}
-.m2-hero h1{font-size:clamp(2.2rem,5.4vw,3.8rem);margin-top:.7rem;line-height:1.05}
-.m2-hero .lead{margin-top:1.1rem;font-size:1.15rem;max-width:34rem}
-.m2-hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
-.m2-hero figure{margin:0}
-.m2-hero img{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
-.m2-hero figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
-.facts3{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
-.facts3 span{font-size:.9rem;font-weight:600;padding:.3rem .8rem;border-radius:999px;background:var(--vigil)}
-.back{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--muted)}
-.back:hover{color:var(--ink)}
-.objs{counter-reset:o;display:grid;gap:.6rem;max-width:46rem}
-.objs li{counter-increment:o;display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.6rem;align-items:baseline}
-.objs li::before{content:counter(o);font-family:var(--f-display);font-size:1.15rem;color:var(--vigil-d)}
-.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
-.units{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-bottom:1.25rem}
-.unit{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.75rem;align-items:center;padding:.75rem 1rem;border-radius:var(--r-md);background:var(--surface);border:2px solid transparent}
-.unit:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.unit .n{font-family:var(--f-display);font-size:1.35rem;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;background:var(--vigil);color:var(--ink)}
-.unit .t{font-weight:600;line-height:1.3}
-.unit .s{display:block;font-weight:400;font-size:.86rem;color:var(--muted)}
-.unit[aria-selected="true"]{border-color:var(--vigil-d);background:var(--vigil)}
-.unit[aria-selected="true"] .n{background:var(--surface)}
-.docs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.doc3{background:var(--surface);border-radius:var(--r-lg);padding:1.4rem 1.4rem 1.5rem;display:grid;gap:.55rem;align-content:start;border-top:8px solid var(--c)}
-.doc3 h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem}
-.doc3 p{font-size:.95rem;color:var(--muted)}
-.doc3 .btn{justify-self:start;margin-top:.3rem}
-.readings{display:grid;gap:.7rem;margin-top:.5rem}
-.readings li{padding-left:1rem;border-left:3px solid var(--vigil);font-size:.97rem}
-.agenda{display:grid}
-.agenda li{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding-block:.75rem;border-bottom:1px solid var(--line)}
-.agenda li:first-child{border-top:1px solid var(--line)}
-.agenda .h{font-weight:600;color:var(--muted)}
-.agenda b{display:block}
-.agenda span.d{font-size:.94rem;color:var(--muted)}
-.locked{background:var(--palu);border-radius:var(--r-lg);padding:clamp(1.5rem,4vw,2.5rem);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:start}
-.locked h2{font-size:clamp(1.8rem,4vw,2.4rem)}
-.locked p{margin-top:.75rem}
-.locked ul{margin-top:.9rem;display:grid;gap:.4rem}
-.locked li{padding-left:1.4rem;position:relative}
-.locked li::before{content:"";position:absolute;left:0;top:.55em;width:.6rem;height:.6rem;border-radius:2px;background:var(--palu-d)}
-.locked .act{display:grid;gap:.8rem;background:var(--surface);border-radius:var(--r-md);padding:1.25rem}
-.locked .act p{margin:0;font-size:.93rem;color:var(--muted)}
-.lock-ico{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:var(--palu)}
-@media (max-width:860px){
-  .m2-hero .grid,.two-col,.locked{grid-template-columns:minmax(0,1fr)}
-  .docs3{grid-template-columns:minmax(0,1fr)}
-}
-@media (max-width:640px){ .units{grid-template-columns:minmax(0,1fr)} .agenda li{grid-template-columns:minmax(0,1fr);gap:.1rem} }
 </style>
 </head>
 <body>
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="../">Francisco García Campos</a>
-    <nav aria-label="Secciones del Módulo 2"><ul>
-      <li><a href="#modulo">Módulo</a></li>
-      <li><a href="#clases">Clases</a></li>
-      <li><a href="#materiales">Materiales</a></li>
-      <li><a href="#encuentro">Encuentro</a></li>
-      <li><a href="#restringido">Acceso docente</a></li>
+    <a class="brand" href="#inicio">Francisco García Campos</a>
+    <nav aria-label="Secciones"><ul>
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#areas">Áreas</a></li>
+      <li><a href="#publicaciones">Publicaciones</a></li>
+      <li><a href="#presentaciones">Presentaciones</a></li>
+      <li><a href="#diplomatura">Diplomatura</a></li>
+      <li data-opt="fotos"><a href="#fotos">Fotos</a></li>
+      <li data-opt="videos"><a href="#videos">Videos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul></nav>
   </div>
 </header>
 
 <main>
-<section class="m2-hero" id="modulo">
+<section class="hero" id="inicio">
   <div class="wrap">
-    <a class="back" href="../">‹ Volver al sitio principal</a>
-    <div class="grid" style="margin-top:1.5rem">
+    <div class="hero-grid">
       <div>
-        <p class="course">Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental, <a href="https://upateco.edu.ar/diplomaturas" rel="noopener">UPATecO</a>, 2026</p>
-        <h1>Módulo 2: Vigilancia epidemiológica con orientación ambiental</h1>
-        <p class="lead">Dr. Francisco García Campos, coordinador de la Diplomatura y docente a cargo del módulo.</p>
-        <div class="facts3"><span>10 horas</span><span>2 semanas</span><span>10 unidades</span><span>Encuentro sincrónico el 17 de noviembre</span></div>
+        <p class="where">Epidemiología y vigilancia en salud pública, Salta</p>
+        <h1>Francisco García Campos</h1>
+        <p class="role">Bioquímico y epidemiólogo. Director General de Coordinación Epidemiológica del Ministerio de Salud Pública de Salta.</p>
         <div class="cta">
-          <a class="btn primary" href="#clases">Ver las clases</a>
-          <a class="btn" href="#materiales">Guía y bibliografía</a>
+          <a class="btn primary" href="#publicaciones">Ver publicaciones</a>
+          <a class="btn" href="https://orcid.org/0000-0002-9362-4933" rel="noopener">ORCID</a>
+          <a class="btn" href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <figure>
-        <img src="campo.jpg" alt="Dos técnicos toman muestras de agua a orillas de un río urbano" width="705" height="414">
-      </figure>
+      <div class="strata">
+        <svg viewBox="0 0 560 400" aria-hidden="true" focusable="false"><path d="M0 0H560V400H0Z" style="fill:var(--palu)"/><path d="M0 76.1 L10 78.6 L20 80.5 L30 81.6 L40 81.9 L50 81.6 L60 80.6 L70 79.0 L80 77.1 L90 74.8 L100 72.4 L110 70.0 L120 67.7 L130 65.6 L140 63.8 L150 62.3 L160 61.0 L170 60.0 L180 59.3 L190 58.6 L200 58.1 L210 57.5 L220 56.8 L230 55.9 L240 54.9 L250 53.6 L260 52.2 L270 50.8 L280 49.2 L290 47.8 L300 46.6 L310 45.7 L320 45.3 L330 45.3 L340 46.0 L350 47.4 L360 49.3 L370 51.9 L380 55.0 L390 58.6 L400 62.4 L410 66.3 L420 70.1 L430 73.7 L440 76.9 L450 79.6 L460 81.5 L470 82.7 L480 83.2 L490 82.8 L500 81.8 L510 80.1 L520 77.9 L530 75.3 L540 72.4 L550 69.6 L560 66.7 L560 400 L0 400Z" style="fill:var(--leish)"/><path d="M0 152.4 L10 150.3 L20 147.7 L30 144.6 L40 141.2 L50 137.7 L60 134.2 L70 130.8 L80 127.7 L90 125.0 L100 122.7 L110 120.9 L120 119.5 L130 118.5 L140 117.9 L150 117.5 L160 117.3 L170 117.1 L180 116.7 L190 116.3 L200 115.6 L210 114.6 L220 113.4 L230 111.9 L240 110.2 L250 108.5 L260 106.8 L270 105.3 L280 104.0 L290 103.2 L300 102.9 L310 103.2 L320 104.1 L330 105.7 L340 107.9 L350 110.6 L360 113.8 L370 117.4 L380 121.1 L390 124.9 L400 128.5 L410 131.9 L420 134.9 L430 137.5 L440 139.5 L450 141.1 L460 142.1 L470 142.7 L480 143.0 L490 143.0 L500 142.9 L510 142.7 L520 142.7 L530 142.7 L540 143.1 L550 143.6 L560 144.4 L560 400 L0 400Z" style="fill:var(--chagas)"/><path d="M0 203.9 L10 202.9 L20 201.6 L30 199.9 L40 198.2 L50 196.4 L60 194.7 L70 193.0 L80 191.6 L90 190.4 L100 189.3 L110 188.4 L120 187.5 L130 186.8 L140 186.0 L150 185.2 L160 184.4 L170 183.4 L180 182.4 L190 181.4 L200 180.4 L210 179.5 L220 178.8 L230 178.4 L240 178.4 L250 178.8 L260 179.8 L270 181.3 L280 183.3 L290 185.8 L300 188.7 L310 191.9 L320 195.3 L330 198.6 L340 201.8 L350 204.5 L360 206.8 L370 208.4 L380 209.1 L390 209.0 L400 208.1 L410 206.3 L420 203.7 L430 200.4 L440 196.6 L450 192.6 L460 188.4 L470 184.3 L480 180.5 L490 177.3 L500 174.6 L510 172.8 L520 171.7 L530 171.6 L540 172.2 L550 173.6 L560 175.6 L560 400 L0 400Z" style="fill:var(--arbo)"/><path d="M0 248.3 L10 244.9 L20 242.0 L30 239.5 L40 237.6 L50 236.2 L60 235.3 L70 234.9 L80 234.8 L90 234.9 L100 235.2 L110 235.6 L120 235.8 L130 236.0 L140 236.0 L150 235.8 L160 235.5 L170 235.1 L180 234.7 L190 234.4 L200 234.3 L210 234.6 L220 235.2 L230 236.3 L240 237.9 L250 240.1 L260 242.8 L270 246.0 L280 249.5 L290 253.3 L300 257.2 L310 261.1 L320 264.8 L330 268.0 L340 270.8 L350 272.9 L360 274.3 L370 275.0 L380 274.9 L390 274.2 L400 272.7 L410 270.8 L420 268.5 L430 265.9 L440 263.2 L450 260.5 L460 258.0 L470 255.7 L480 253.7 L490 252.0 L500 250.6 L510 249.5 L520 248.6 L530 247.8 L540 247.0 L550 246.2 L560 245.2 L560 400 L0 400Z" style="fill:var(--hanta)"/><path d="M0 309.8 L10 312.2 L20 314.9 L30 317.8 L40 320.6 L50 323.3 L60 325.7 L70 327.6 L80 328.9 L90 329.6 L100 329.5 L110 328.6 L120 327.0 L130 324.8 L140 322.1 L150 318.9 L160 315.5 L170 312.0 L180 308.7 L190 305.6 L200 302.9 L210 300.7 L220 299.2 L230 298.2 L240 297.9 L250 298.2 L260 299.0 L270 300.2 L280 301.7 L290 303.4 L300 305.0 L310 306.7 L320 308.1 L330 309.4 L340 310.3 L350 311.1 L360 311.6 L370 311.9 L380 312.1 L390 312.3 L400 312.6 L410 313.0 L420 313.6 L430 314.5 L440 315.6 L450 317.0 L460 318.5 L470 320.1 L480 321.7 L490 323.2 L500 324.5 L510 325.4 L520 325.8 L530 325.7 L540 325.0 L550 323.6 L560 321.6 L560 400 L0 400Z" style="fill:var(--vigil)"/></svg>
+        <div class="chips" aria-label="Áreas de trabajo">
+          <a class="chip" style="--c:var(--arbo)" href="#area-arbo">Arbovirosis</a>
+          <a class="chip" style="--c:var(--hanta)" href="#area-hanta">Hantavirus</a>
+          <a class="chip" style="--c:var(--leish)" href="#area-leish">Leishmaniasis</a>
+          <a class="chip" style="--c:var(--chagas)" href="#area-chagas">Chagas</a>
+          <a class="chip" style="--c:var(--palu)" href="#area-palu">Paludismo</a>
+          <a class="chip" style="--c:var(--vigil)" href="#area-vigil">Vigilancia y laboratorio</a>
+        </div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b class="num">35+</b><span>años en salud pública</span></div>
+      <div><b class="num">18</b><span>años en el Hospital Dr. Elías Anna, Colonia Santa Rosa</span></div>
+      <div><b class="num">2007</b><span>ingreso a la vigilancia epidemiológica provincial</span></div>
+      <div><b class="num">2022</b><span>a cargo de la Coordinación Epidemiológica</span></div>
     </div>
   </div>
 </section>
 
-<section class="band">
-  <div class="wrap">
-    <div class="two-col">
-      <div class="prose">
-        <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem)">Presentación</h2>
-        <p>El propósito del módulo es que cada estudiante pueda comprender, operar y evaluar un sistema de vigilancia epidemiológica, y reconocer cómo ese sistema se amplía para vigilar los peligros ambientales y la interfaz humano–animal–ambiente.</p>
-        <p>La vigilancia es la herramienta que convierte datos dispersos en información para la acción. Sin vigilancia no hay alerta temprana, no hay evaluación de programas y no hay forma de saber si una intervención ambiental protege efectivamente a la población. Por eso este módulo es el puente entre los fundamentos de la epidemiología (Módulo 1) y los módulos de vigilancia ambiental, centinela y Una Salud (Módulos 5 a 7).</p>
-      </div>
-      <div>
-        <h3 class="col-title">Al terminar el módulo vas a poder</h3>
-        <ol class="objs" style="padding:0;margin:0;list-style:none">
-          <li>Definir la vigilancia epidemiológica y la vigilancia en salud, y explicar sus diferencias.</li>
-          <li>Ubicar los hitos históricos que dieron forma a la vigilancia moderna.</li>
-          <li>Describir el marco legal argentino de la notificación obligatoria y el funcionamiento del SNVS.</li>
-          <li>Distinguir los tipos de vigilancia y elegir la adecuada para cada problema.</li>
-          <li>Aplicar las etapas de un sistema de vigilancia: recolección, análisis, interpretación y difusión.</li>
-          <li>Evaluar un sistema de vigilancia a partir de sus atributos.</li>
-          <li>Explicar el modelo peligro–exposición–efecto y aplicarlo a problemas de Salta.</li>
-          <li>Relacionar el enfoque Una Salud con la vigilancia integrada.</li>
-          <li>Interpretar el Reglamento Sanitario Internacional (2005).</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="clases">
+<section class="band" id="trayectoria">
   <div class="wrap">
     <div class="head">
-      <h2>Clases</h2>
-      <p>Elegí una unidad para ver su presentación acá mismo. Avanzá con las flechas, deslizando el dedo o con el botón de reproducción.</p>
+      <h2>Mi trayectoria</h2>
     </div>
-    <div class="units" role="tablist" aria-label="Unidades del módulo" id="units"></div>
+    <div class="about-grid">
+      <div class="prose">
+        <p>Me recibí de bioquímico en la Universidad Nacional de Tucumán en 1988 y trabajé dieciocho años en el Hospital Dr. Elías Anna de Colonia Santa Rosa, donde fui jefe de laboratorio y vigilante epidemiológico del área operativa.</p>
+        <p>Desde 2007 trabajo en la vigilancia epidemiológica de la provincia de Salta. Pasé por el Programa Chagas, la Vigilancia por Redes de Laboratorio (SIVILA) y el Programa de Vigilancia Epidemiológica, y desde 2022 dirijo la Coordinación Epidemiológica del Ministerio de Salud Pública.</p>
+        <p>Conduje la respuesta a brotes de dengue, chikungunya y zika en el norte provincial, y participo en investigaciones sobre leishmaniasis, hantavirus y Chagas junto a equipos de la Universidad Nacional de Salta, el CONICET y la red nacional de laboratorios.</p>
+        <h3 class="col-title" style="margin-top:1.5rem">Formación</h3>
+        <ul class="timeline">
+          <li class="now"><span class="yr">En curso</span><div><b>Doctorado en Ciencias de la Salud</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">2025</span><div><b>Magíster en Salud Pública, mención Atención Primaria de la Salud</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">2024</span><div><b>Especialista en Epidemiología</b><small>Colegio de Bioquímicos de Salta</small></div></li>
+          <li><span class="yr num">2016</span><div><b>Especialista en Salud Pública</b><small>Universidad Nacional de Salta</small></div></li>
+          <li><span class="yr num">1988</span><div><b>Bioquímico</b><small>Universidad Nacional de Tucumán</small></div></li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">También: Posgrado en Epidemiología Integral y Aplicada a la Gestión Sanitaria (UTN-FRBA, 505 h) y curso MOPECE de OPS/OMS (2018).</p>
+      </div>
+      <div>
+        <h3 class="col-title">Cargos</h3>
+        <ul class="timeline">
+          <li class="now"><span class="yr num">2022 – hoy</span><div><b>Director General de Coordinación Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2019 – 2022</span><div><b>Jefe del Programa de Vigilancia Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2012 – 2019</span><div><b>Jefe del Programa de Vigilancia por Redes de Laboratorio (SIVILA)</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2010 – 2012</span><div><b>Jefe del Programa Chagas</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">2007 – 2010</span><div><b>Profesional del Programa de Vigilancia Epidemiológica</b><small>Ministerio de Salud Pública de Salta</small></div></li>
+          <li><span class="yr num">1988 – 2006</span><div><b>Bioquímico, jefe de laboratorio y vigilante epidemiológico</b><small>Hospital Dr. Elías Anna, Colonia Santa Rosa</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="viewer" id="viewer" role="tabpanel" style="--cd:var(--vigil-d)">
+<section id="areas">
+  <div class="wrap">
+    <div class="head">
+      <h2>Áreas de trabajo</h2>
+      <p>Los eventos que sigo y las líneas de investigación en las que participo. Cada área conserva su color en todo el sitio.</p>
+    </div>
+    <div class="areas">
+      <article class="area" id="area-arbo" style="--c:var(--arbo);--cd:var(--arbo-d)">
+        <p class="kind">Arbovirosis</p>
+        <h3>Dengue, chikungunya y zika</h3>
+        <p>Vigilancia y respuesta a brotes de dengue en Salta desde 2007, incluida la introducción de dengue 3 y la circulación simultánea de los serotipos 1 y 2. Respuesta al brote de chikungunya, caracterización clínica de un brote de zika y control de <i>Aedes aegypti</i> en el norte provincial.</p>
+      </article>
+      <article class="area" id="area-hanta" style="--c:var(--hanta);--cd:var(--hanta-d)">
+        <p class="kind">Zoonosis</p>
+        <h3>Hantavirus</h3>
+        <p>Vigilancia del síndrome pulmonar por hantavirus y participación en la descripción de un nuevo orthohantavirus asociado a casos en el norte argentino (<i>Viruses</i>, 2025).</p>
+      </article>
+      <article class="area" id="area-leish" style="--c:var(--leish);--cd:var(--leish-d)">
+        <p class="kind">Enfermedades vectoriales</p>
+        <h3>Leishmaniasis visceral</h3>
+        <p>Caracterización clínica y eco-epidemiológica de los casos humanos en Salta entre 2008 y 2022, estudios de foco en zonas urbanas del norte provincial, estratificación de riesgo y vigilancia de reservorios caninos.</p>
+      </article>
+      <article class="area" id="area-chagas" style="--c:var(--chagas);--cd:var(--chagas-d)">
+        <p class="kind">Enfermedades vectoriales</p>
+        <h3>Chagas</h3>
+        <p>Modelo de intervención integral en un área de difícil acceso (Alto de la Sierra) y evaluación de campo de pruebas de diagnóstico rápido para la infección por <i>Trypanosoma cruzi</i>.</p>
+      </article>
+      <article class="area" id="area-palu" style="--c:var(--palu);--cd:var(--palu-d)">
+        <p class="kind">Eliminación</p>
+        <h3>Paludismo</h3>
+        <p>Colaboración técnica con el Ministerio de Salud de la Nación en el marco de certificación de la eliminación del paludismo y en el plan de prevención de su restablecimiento en Argentina (2018).</p>
+      </article>
+      <article class="area" id="area-vigil" style="--c:var(--vigil);--cd:var(--vigil-d)">
+        <p class="kind">Sistemas de información</p>
+        <h3>Vigilancia y redes de laboratorio</h3>
+        <p>Organización de la red provincial de laboratorios, implementación del SIVILA y del SNVS 2.0, y capacitación de equipos en la notificación de los Eventos de Notificación Obligatoria.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="publicaciones">
+  <div class="wrap">
+    <div class="head">
+      <h2>Publicaciones</h2>
+      <p>Artículos y libros. Los de acceso abierto se pueden descargar.</p>
+    </div>
+    <div class="pubs">
+      <article class="pub" style="--c:var(--hanta)">
+        <span class="yr num">2025</span>
+        <div>
+          <h3>Novel Orthohantavirus Associated with Hantavirus Pulmonary Syndrome in Northern Argentina</h3>
+          <p>Bellomo CM, … García Campos F, et al. <i>Viruses</i>. 2025;17:717. <a href="https://doi.org/10.3390/v17050717" rel="noopener">doi:10.3390/v17050717</a></p>
+          <div class="meta"><span class="kind-tag">Hantavirus · artículo</span></div>
+        </div>
+      </article>
+      <article class="pub" style="--c:var(--leish)">
+        <span class="yr num">2025</span>
+        <div>
+          <h3>Vigilancia sanitaria de reservorios caninos de leishmaniasis visceral: el caso de Salta en 2023</h3>
+          <p>Gieco A, Tapia E, Huidobro N, García Campos F, et al. <i>Vigilância Sanitária em Debate</i>. 2025;13:e02414. <a href="https://doi.org/10.22239/2317-269X.02414" rel="noopener">doi:10.22239/2317-269X.02414</a></p>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · artículo</span></div>
+        </div>
+      </article>
+      <article class="pub" style="--c:var(--leish)">
+        <span class="yr num">2025</span>
+        <div>
+          <h3>Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en la Provincia de Salta, 2008–2022</h3>
+          <p>García Campos FM, Barroso P. Obra con registro de propiedad intelectual.</p>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · libro</span></div>
+        </div>
+      </article>
+      <article class="pub" style="--c:var(--leish)">
+        <span class="yr num">2024</span>
+        <div>
+          <h3>Clinical characterization and epidemiological aspects of human visceral leishmaniasis in the province of Salta, 2008–2022</h3>
+          <p>García Campos FM, Tapia E, Serrat JH, Ruiz de Huidobro N, García Bustos MF, Basombrío M, Marco JD, Barroso PA. <i>International Journal of Health Science</i>. 2024;4(87). <a href="https://doi.org/10.22533/at.ed.1594872424095" rel="noopener">doi:10.22533/at.ed.1594872424095</a></p>
+          <div class="meta"><span class="kind-tag">Leishmaniasis · artículo</span><a class="btn small" href="documentos/garcia-campos-2024-ijhs-leishmaniasis-visceral-salta.pdf" download>Descargar PDF <small>1,9 MB · CC BY-NC-ND 4.0</small></a></div>
+        </div>
+      </article>
+      <article class="pub" style="--c:var(--chagas)">
+        <span class="yr num">2020</span>
+        <div>
+          <h3>Rapid Diagnostic Tests for <i>Trypanosoma cruzi</i> Infection: Field Evaluation of Two Registered Kits in a Region of Endemicity and a Region of Nonendemicity in Argentina</h3>
+          <p>Lopez-Albizu C, Danesi E, Piorno P, Fernandez M, García Campos F, Scollo K, Crudo F. <i>Journal of Clinical Microbiology</i>. 2020;58(12):e01140-20. <a href="https://doi.org/10.1128/JCM.01140-20" rel="noopener">doi:10.1128/JCM.01140-20</a></p>
+          <div class="meta"><span class="kind-tag">Chagas · artículo</span><a class="btn small" href="documentos/lopez-albizu-2020-jcm-pruebas-rapidas-trypanosoma-cruzi.pdf" download>Descargar PDF <small>0,8 MB · CC BY 4.0</small></a></div>
+        </div>
+      </article>
+      <article class="pub" style="--c:var(--chagas)">
+        <span class="yr num">2011</span>
+        <div>
+          <h3>Modelo de intervención integral en prevención y atención de Chagas en un área inaccesible de la provincia de Salta. Alto de la Sierra, Salta</h3>
+          <p>García Campos FM, Rangeon G, Cachavilano O, Gentile AJ. <i>Revista Médica de Salta</i>. 2011;(40):40–47.</p>
+          <div class="meta"><span class="kind-tag">Chagas · artículo</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="note">Los artículos descargables están en la versión publicada por cada revista, según su licencia de acceso abierto. Para citarlos, usá la referencia y el DOI de la publicación original.</p>
+
+    <h3 class="sub">Documentos técnicos y normativos</h3>
+    <ul class="plain">
+      <li><span class="yr num">2018</span><span><span class="dot" style="--c:var(--palu)"></span>Eliminación del paludismo en Argentina: documento base del Plan de prevención del restablecimiento del paludismo y marco de certificación de la eliminación. <em>Colaborador técnico, Ministerio de Salud de la Nación.</em></span></li>
+      <li><span class="yr num">2014</span><span><span class="dot" style="--c:var(--vigil)"></span>Normas de diagnóstico, tratamiento y seguimiento de la toxoplasmosis aguda en la embarazada y toxoplasmosis congénita. <em>Editor responsable, DGCE Salta.</em></span></li>
+      <li><span class="yr num">2007</span><span><span class="dot" style="--c:var(--vigil)"></span>Meningoencefalitis. Normas de diagnóstico y tratamiento. Resolución Ministerial Nº 3630. <em>Editor responsable, Salta.</em></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="presentaciones">
+  <div class="wrap">
+    <div class="head">
+      <h2>Presentaciones</h2>
+      <p>Elegí una presentación para verla acá mismo. Pasa sola, o la podés recorrer con las flechas. Si necesitás el archivo, pedímelo con el botón de abajo.</p>
+    </div>
+
+    <div class="picker" role="tablist" aria-label="Elegir presentación">
+      <button class="pick" role="tab" id="pick-pdr" aria-selected="true" style="--c:var(--chagas);--cd:var(--chagas-d)" data-pres="0">
+        <span class="yr num">2026 · Jornadas de Salud Territorial, ETMI Plus</span>
+        <span class="t">Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta</span>
+      </button>
+      <button class="pick" role="tab" id="pick-tesis" aria-selected="false" style="--c:var(--leish);--cd:var(--leish-d)" data-pres="1">
+        <span class="yr num">2025 · Defensa de tesis de Maestría, UNSa</span>
+        <span class="t">Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en Salta, 2008–2022</span>
+      </button>
+    </div>
+
+    <div class="viewer" id="viewer" role="tabpanel" aria-labelledby="pick-pdr" style="--cd:var(--chagas-d)">
       <div class="stage" id="stage" aria-live="polite">
         <img id="slide" alt="" draggable="false" hidden>
-        <p class="msg" id="msg">Elegí una unidad para empezar.</p>
+        <p class="msg" id="msg">Cargando la presentación…</p>
         <button class="nav prev" id="prev" type="button" aria-label="Diapositiva anterior">‹</button>
         <button class="nav next" id="next" type="button" aria-label="Diapositiva siguiente">›</button>
       </div>
       <div class="controls">
         <div class="left">
-          <button class="btn small mob-only" id="prev2" type="button">‹ Anterior</button>
-          <button class="btn small mob-only" id="next2" type="button">Siguiente ›</button>
-          <button class="btn small" id="play" type="button">Reproducir</button>
+          <button class="btn small mob-only" id="prev2" type="button" aria-label="Diapositiva anterior">‹ Anterior</button>
+          <button class="btn small mob-only" id="next2" type="button" aria-label="Diapositiva siguiente">Siguiente ›</button>
+          <button class="btn small" id="play" type="button">Pausar</button>
           <button class="btn small" id="full" type="button">Pantalla completa</button>
         </div>
         <div class="progress" aria-hidden="true"><i id="bar"></i></div>
         <span class="counter num" id="counter">– / –</span>
       </div>
       <div class="viewer-foot">
-        <span>© Dr. Francisco García Campos. Material del Módulo 2, Diplomatura UPATecO 2026. Para citarlo o usarlo, escribime.</span>
+        <span>© Francisco M. García Campos. Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" rel="noopener">CC BY-NC-ND 4.0</a>: citar la fuente, sin uso comercial ni modificaciones.</span>
         <a class="btn small primary" id="ask" href="#">Solicitar esta presentación</a>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="band" id="materiales">
-  <div class="wrap">
-    <div class="head">
-      <h2>Materiales de lectura</h2>
-      <p>De libre acceso. Podés leerlos en línea o descargarlos.</p>
-    </div>
-    <div class="docs3">
-      <article class="doc3" style="--c:var(--vigil)">
-        <h3>Guía de estudio</h3>
-        <p>Las diez unidades desarrolladas, recuadros «Para pensar», actividades de autoevaluación y casos, glosario y referencias. 42 páginas.</p>
-        <a class="btn small primary" href="documentos/Guia_de_estudio_Modulo2_Vigilancia_Epidemiologica.pdf" target="_blank" rel="noopener">Abrir la guía <small>PDF · 0,6 MB</small></a>
-      </article>
-      <article class="doc3" style="--c:var(--palu)">
-        <h3>Ficha de normas y procedimientos</h3>
-        <p>Cómo leer, construir y usar la ficha de normas y procedimientos de la OMS (Cuadro 4.4 del MOPECE), con un modelo para eventos ambientales. 18 páginas.</p>
-        <a class="btn small primary" href="documentos/Ficha_Normas_y_Procedimientos_Vigilancia_Modulo2.pdf" target="_blank" rel="noopener">Abrir la ficha <small>PDF · 0,7 MB</small></a>
-      </article>
-      <article class="doc3" style="--c:var(--hanta)">
-        <h3>Bibliografía y material audiovisual</h3>
-        <p>Lectura obligatoria, bibliografía complementaria sobre vigilancia epidemiológica y ambiental, videos y cursos sobre Una Salud. 5 páginas.</p>
-        <a class="btn small primary" href="documentos/Bibliografia_y_material_audiovisual_Modulo2.pdf" target="_blank" rel="noopener">Abrir la bibliografía <small>PDF · 0,2 MB</small></a>
-      </article>
-    </div>
-
-    <h3 class="sub">Lectura obligatoria</h3>
-    <ul class="readings">
-      <li>Organización Panamericana de la Salud. <i>Módulos de Principios de Epidemiología para el Control de Enfermedades (MOPECE). Módulo 4: Vigilancia en salud pública.</i> 2.ª ed. rev. Washington, DC: OPS; 2011.</li>
-      <li>Ministerio de Salud de la Nación, Dirección de Epidemiología. <i>Guía para el fortalecimiento de la vigilancia de la salud en el nivel local.</i> Buenos Aires; 2013.</li>
-      <li>Ministerio de Salud de la Nación. <i>Manual de normas y procedimientos de vigilancia y control de eventos de notificación obligatoria.</i> Buenos Aires; 2026 (Disposición DE 1/2026).</li>
-      <li>Ballester F. Vigilancia de riesgos ambientales en salud pública. El caso de la contaminación atmosférica. <i>Gac Sanit.</i> 2005;19(3):253-7. <a href="https://www.scielosp.org/pdf/gs/v19n3/opinion.pdf" rel="noopener">Texto completo</a></li>
+    <h3 class="sub">Congresos y jornadas</h3>
+    <ul class="plain">
+      <li><span class="yr num">2026</span><span><span class="dot" style="--c:var(--chagas)"></span>Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta. <em>Jornadas de Salud Territorial, ETMI Plus. Disertante.</em></span></li>
+      <li><span class="yr num">2026</span><span><span class="dot" style="--c:var(--arbo)"></span>Chikungunya: epidemiología, clínica y seguimiento de casos en Salta. <em>Jornadas de Enfermedades Emergentes. Disertante.</em></span></li>
+      <li><span class="yr num">2025</span><span><span class="dot" style="--c:var(--vigil)"></span>Gestión de brotes. <em>XXV Congreso Argentino de Infectología (SADI). Disertante.</em></span></li>
+      <li><span class="yr num">2025</span><span><span class="dot" style="--c:var(--leish)"></span>Defensa de la tesis de Maestría sobre leishmaniasis visceral humana en Salta, 2008–2022. <em>Universidad Nacional de Salta.</em></span></li>
+      <li><span class="yr num">2023</span><span><span class="dot" style="--c:var(--leish)"></span>Caracterización clínica y aspectos epidemiológicos de la leishmaniasis visceral humana en Salta, 2008–2022. <em>XXI Simposio Internacional Mundo Sano.</em></span></li>
+      <li><span class="yr num">2022</span><span><span class="dot" style="--c:var(--leish)"></span>Estudio de foco de la leishmaniasis visceral en zonas urbanas del norte de Salta. <em>IX Congreso Argentino de Parasitología, Salta.</em></span></li>
+      <li><span class="yr num">2022</span><span><span class="dot" style="--c:var(--vigil)"></span>Tercera ola de COVID-19 por variante Ómicron: la experiencia de Salta en epidemiología basada en aguas residuales. <em>Primer Workshop «One Health», red PANACEA, con V. Rajal.</em></span></li>
+      <li><span class="yr num">2019</span><span><span class="dot" style="--c:var(--vigil)"></span>Disertante e integrante de mesa redonda. <em>XXII Jornadas de Enfermedades Infecciosas Emergentes y Reemergentes, Salta.</em></span></li>
+      <li><span class="yr num">2019</span><span><span class="dot" style="--c:var(--leish)"></span>Leishmaniasis visceral: vigilancia epidemiológica y estratificación de riesgo. <em>8º Encuentro de Vigilancia Epidemiológica y Redes de Laboratorio/SIVILA.</em></span></li>
+      <li><span class="yr num">2018</span><span><span class="dot" style="--c:var(--vigil)"></span>Análisis de patologías relevantes de la región. <em>Encuentro Binacional Argentina–Bolivia, Tarija.</em></span></li>
+      <li><span class="yr num">2017</span><span><span class="dot" style="--c:var(--arbo)"></span>Caracterización clínica de un brote de zika. <em>XVII Congreso de la Sociedad Argentina de Infectología.</em></span></li>
+      <li><span class="yr num">2016</span><span><span class="dot" style="--c:var(--arbo)"></span>Brote de chikungunya en Salta. <em>VIII Reunión de la Red Nacional de Laboratorios de Dengue y otros Arbovirus, Pergamino.</em></span></li>
+      <li><span class="yr num">2007</span><span><span class="dot" style="--c:var(--arbo)"></span>Avances en vigilancia y control de brotes de dengue en la provincia de Salta. <em>Segundo Encuentro de Epidemiólogos de Campo.</em></span></li>
+      <li><span class="yr num">2003</span><span><span class="dot" style="--c:var(--arbo)"></span>Introducción del virus dengue 3 y circulación simultánea de dengue 1 y dengue 2 en la Argentina. <em>Congreso Latinoamericano de Microbiología.</em></span></li>
     </ul>
-    <p class="note">Los enlaces a cada texto están en el PDF de bibliografía.</p>
-  </div>
-</section>
 
-<section id="encuentro">
-  <div class="wrap">
-    <div class="head">
-      <h2>Encuentro sincrónico del 17 de noviembre</h2>
-      <p>Por Zoom, de 17 a 20 h. La consigna del trabajo grupal y la asignación de grupos se comparten por el campus.</p>
-    </div>
-    <ul class="agenda">
-      <li><span class="h num">17:00 – 18:00</span><span><b>Exposición</b><span class="d">Vigilancia epidemiológica con orientación ambiental.</span></span></li>
-      <li><span class="h num">18:00 – 18:10</span><span><b>Consigna y pase a las aulas</b><span class="d">Presentación de la consigna y apertura de las salas de Zoom.</span></span></li>
-      <li><span class="h num">18:10 – 19:00</span><span><b>Trabajo en aulas virtuales</b><span class="d">Discusión guiada del artículo asignado y redacción de la reflexión.</span></span></li>
-      <li><span class="h num">19:00 – 19:45</span><span><b>Puesta en común</b><span class="d">Cada grupo presenta en 4 minutos, agrupados por artículo.</span></span></li>
-      <li><span class="h num">19:45 – 20:00</span><span><b>Síntesis y cierre</b><span class="d">Síntesis del docente y tareas para el campus.</span></span></li>
-    </ul>
-  </div>
-</section>
-
-<section id="restringido">
-  <div class="wrap">
-    <div class="locked">
+    <div class="about-grid" style="margin-top:1rem">
       <div>
-        <div class="lock-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-        <h2 style="margin-top:.8rem">Material docente</h2>
-        <p>Acceso solo para el equipo docente y las personas autorizadas. Incluye:</p>
-        <ul>
-          <li>Banco de preguntas de la evaluación individual</li>
-          <li>Conformación de los grupos de trabajo</li>
-          <li>Consignas y plantilla del trabajo grupal del 17 de noviembre</li>
-          <li>Versiones editables de las clases, la ficha y la bibliografía</li>
+        <h3 class="sub">Docencia</h3>
+        <ul class="plain">
+          <li><span class="yr num">2026</span><span>Coordinador de la Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental y docente del <a href="modulo2/">Módulo 2</a>. <em>UPATecO.</em></span></li>
+          <li><span class="yr num">2022</span><span>Director y docente del curso Herramientas básicas de vigilancia y registro de los ENO <em>(100 h).</em></span></li>
+          <li><span class="yr num">2019–22</span><span>Docente de la Residencia de Epidemiología de Campo, DGCE.</span></li>
+          <li><span class="yr num">2014</span><span>Coordinador y docente del Curso de Epidemiología Básica y Vigilancia de la Salud <em>(400 h).</em></span></li>
         </ul>
       </div>
-      <div class="act">
-        <p>El material está en una carpeta de Google Drive. Al abrirla, Google te pide entrar con la cuenta que fue autorizada.</p>
-        <a class="btn primary" id="drive" href="#" rel="noopener">Abrir la carpeta</a>
-        <p>¿No tenés acceso? <a id="req" href="#">Pedilo por correo</a> indicando la cuenta de Google con la que vas a entrar.</p>
+      <div>
+        <h3 class="sub">Reconocimientos</h3>
+        <ul class="plain">
+          <li><span class="yr num">2021</span><span>Reconocimiento del Ministerio de Salud de la Nación por su trayectoria en epidemiología y su trabajo con la red federal.</span></li>
+          <li><span class="yr num">2019</span><span>«Por una Argentina libre de Chagas». Hospital Melchora Figueroa de Cornejo, Rosario de la Frontera.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="diplomatura">
+  <div class="wrap">
+    <div class="dip">
+      <div>
+        <p class="where">Docencia 2026</p>
+        <h2>Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental</h2>
+        <p>UPATecO. Soy coordinador de la Diplomatura y docente a cargo del Módulo 2, Vigilancia epidemiológica con orientación ambiental: clases, guía de estudio, ficha de normas y bibliografía.</p>
+        <a class="btn primary" href="modulo2/">Ir al Módulo 2</a>
+      </div>
+      <img src="modulo2/campo.jpg" alt="Dos técnicos toman muestras de agua a orillas de un río urbano" width="705" height="414" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="fotos" hidden>
+  <div class="wrap">
+    <div class="head">
+      <h2>Fotos</h2>
+      <p>Trabajo de campo, jornadas y equipos. Tocá una foto para verla más grande.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section id="videos" hidden>
+  <div class="wrap">
+    <div class="head">
+      <h2>Videos</h2>
+      <p>Charlas y entrevistas publicadas en YouTube.</p>
+    </div>
+    <div class="videos" id="video-list"></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Contacto</h2>
+        <p>Para consultas, invitaciones a jornadas, pedidos de presentaciones o colaboraciones en vigilancia epidemiológica, escribime.</p>
+        <div class="mail">
+          <code id="email">pacogarciacampos1964@gmail.com</code>
+          <button class="btn small" type="button" id="copy">Copiar</button>
+        </div>
+        <p id="copied" aria-live="polite"></p>
+      </div>
+      <div class="links">
+        <div><b>Ministerio de Salud Pública de Salta</b><span>Dirección General de Coordinación Epidemiológica</span></div>
+        <div><b>Universidad Nacional de Salta</b><span>Doctorado en Ciencias de la Salud</span></div>
+        <div><b>ORCID</b><span><a href="https://orcid.org/0000-0002-9362-4933" rel="noopener">0000-0002-9362-4933</a></span></div>
+        <div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/francisco-garc%C3%ADa-campos-69769242/" rel="noopener">francisco-garcía-campos</a></span></div>
       </div>
     </div>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr">2026</span> Francisco García Campos</span><a class="back" href="../">franciscogarciacampos.com</a></div></footer>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Francisco García Campos</span><span>Salta, Argentina</span></div></footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+  <button class="close" type="button" id="lb-close" aria-label="Cerrar">×</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
 
 <script>
 /* =====================================================================
    CONTENIDO EDITABLE
-   CARPETA_DRIVE: pegá entre las comillas el enlace de la carpeta de
-   Google Drive (Compartir > Copiar enlace). Mientras esté vacío, el
-   botón «Abrir la carpeta» lleva a pedir acceso por correo.
+   Para agregar fotos: subí la imagen a la carpeta "fotos" del repositorio
+   y agregá una línea con el nombre del archivo y el texto que la acompaña.
+   Para agregar videos: copiá el código del video de YouTube (lo que va
+   después de "v=" o de "youtu.be/") y agregá una línea con el título.
    ===================================================================== */
-var CARPETA_DRIVE = "";
-var CORREO = "pacogarciacampos1964@gmail.com";
-var SEGUNDOS_POR_DIAPOSITIVA = 8;
-var UNIDADES = [
-  { n:1,  clave:"u01", t:"La vigilancia epidemiológica: concepto e hitos históricos", s:"De Graunt a 2026" },
-  { n:2,  clave:"u02", t:"Marco legal y sistema de vigilancia en Argentina", s:"Ley 15.465, Disposición 1/2026 y SNVS" },
-  { n:3,  clave:"u03", t:"Vigilancia epidemiológica, en salud y sanitaria", s:"Propósitos y usos" },
-  { n:4,  clave:"u04", t:"Tipos de vigilancia", s:"Pasiva, activa, centinela, sindrómica y más" },
-  { n:5,  clave:"u05", t:"Eventos de salud bajo vigilancia", s:"Priorización, definiciones de caso y brotes" },
-  { n:6,  clave:"u06", t:"Sistemas de vigilancia y sus etapas", s:"Recolección, análisis, interpretación y difusión" },
-  { n:7,  clave:"u07", t:"Evaluación de los sistemas de vigilancia", s:"Utilidad, atributos, sensibilidad y VPP" },
-  { n:8,  clave:"u08", t:"Vigilancia en salud ambiental", s:"Peligro, exposición y efecto en Salta" },
-  { n:9,  clave:"u09", t:"Una Salud y vigilancia integrada", s:"Enfoque y marco institucional" },
-  { n:10, clave:"u10", t:"Reglamento Sanitario Internacional (2005)", s:"Notificación, Anexo 2 y enmiendas 2024" }
+var FOTOS = [
+  // { archivo: "fotos/ejemplo.jpg", pie: "Descripción de la foto" },
 ];
+var VIDEOS = [
+  // { id: "CODIGO_DE_YOUTUBE", titulo: "Título del video" },
+];
+var PRESENTACIONES = [
+  { clave: "pdr", archivo: "presentacion-pdr.js", color: "--chagas-d",
+    titulo: "Uso de pruebas de diagnóstico rápido para la enfermedad de Chagas. Experiencia en Salta" },
+  { clave: "tesis", archivo: "presentacion-tesis.js", color: "--leish-d",
+    titulo: "Caracterización clínica y aspectos eco-epidemiológicos de leishmaniasis visceral humana en Salta, 2008-2022 (tesis de Maestría)" }
+];
+var CORREO = "pacogarciacampos1964@gmail.com";
+var SEGUNDOS_POR_DIAPOSITIVA = 6;
 </script>
+
 <script>
 (function(){
-  document.getElementById('yr').textContent=new Date().getFullYear();
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* acceso restringido */
-  var pedir='mailto:'+CORREO+'?subject='+encodeURIComponent('Pedido de acceso: material docente del Módulo 2')+
-    '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera acceso a la carpeta del material docente del Módulo 2.\n\nNombre:\nFunción en la Diplomatura:\nCuenta de Google con la que voy a entrar:\n\nGracias.');
-  document.getElementById('req').href=pedir;
-  var dr=document.getElementById('drive');
-  if(CARPETA_DRIVE){ dr.href=CARPETA_DRIVE; dr.target='_blank'; } else { dr.href=pedir; dr.textContent='Pedir acceso'; }
-
-  /* lista de unidades */
-  var box=document.getElementById('units');
-  UNIDADES.forEach(function(u,i){
-    var b=document.createElement('button'); b.type='button'; b.className='unit'; b.setAttribute('role','tab');
-    b.setAttribute('aria-selected','false'); b.id='tab-'+u.clave; b.dataset.i=i;
-    b.innerHTML='<span class="n"></span><span class="t"></span>';
-    b.querySelector('.n').textContent=u.n;
-    b.querySelector('.t').textContent=u.t;
-    var s=document.createElement('span'); s.className='s'; s.textContent=u.s; b.querySelector('.t').appendChild(s);
-    box.appendChild(b);
+  /* correo */
+  var b=document.getElementById('copy'), m=document.getElementById('copied'), e=document.getElementById('email');
+  b.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(e);var g=window.getSelection();g.removeAllRanges();g.addRange(r);m.textContent='Dirección seleccionada: copiala con Ctrl+C';}
+    try{navigator.clipboard.writeText(e.textContent).then(function(){m.textContent='Dirección copiada';},sel);}catch(err){sel();}
   });
 
-  /* visor */
+  /* ---------- visor de presentaciones ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var img=document.getElementById('slide'), stage=document.getElementById('stage'), msg=document.getElementById('msg');
-  var counter=document.getElementById('counter'), bar=document.getElementById('bar'), playBtn=document.getElementById('play');
-  var viewer=document.getElementById('viewer'), ask=document.getElementById('ask');
-  var slides=null, page=1, total=0, cur=-1, timer=null, playing=false, visible=false, loading={};
-  window.DIAPOSITIVAS=window.DIAPOSITIVAS||{};
+  var counter=document.getElementById('counter'), bar=document.getElementById('bar');
+  var playBtn=document.getElementById('play'), viewer=document.getElementById('viewer'), ask=document.getElementById('ask');
+  var slides=null, page=1, total=0, cur=-1, timer=null, playing=!reduce, visible=false, loading={};
+  window.DIAPOSITIVAS = window.DIAPOSITIVAS || {};
+
   stage.addEventListener('contextmenu',function(ev){ev.preventDefault();});
 
   function setAsk(i){
-    var u=UNIDADES[i]; var title='Unidad '+u.n+': '+u.t;
-    ask.href='mailto:'+CORREO+'?subject='+encodeURIComponent('Solicitud de presentación del Módulo 2: '+title)+
-      '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera solicitar la presentación "'+title+'".\n\nNombre:\nInstitución:\nUso previsto:\n\nGracias.');
+    var p=PRESENTACIONES[i];
+    ask.href='mailto:'+CORREO+'?subject='+encodeURIComponent('Solicitud de presentación: '+p.titulo)+
+      '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera solicitar la presentación "'+p.titulo+'".\n\nNombre:\nInstitución:\nUso previsto:\n\nGracias.');
   }
-  function updatePlay(){ playBtn.textContent=playing?'Pausar':'Reproducir'; }
+  function updatePlay(){ playBtn.textContent = playing ? 'Pausar' : 'Reproducir'; playBtn.setAttribute('aria-pressed', playing?'false':'true'); }
   function stop(){ if(timer){clearInterval(timer);timer=null;} }
-  function start(){ stop(); if(playing&&visible&&slides){ timer=setInterval(function(){ go(page<total?page+1:1); },SEGUNDOS_POR_DIAPOSITIVA*1000); } }
+  function start(){ stop(); if(playing && visible && slides){ timer=setInterval(function(){ go(page<total?page+1:1); }, SEGUNDOS_POR_DIAPOSITIVA*1000); } }
   function go(n){
     if(!slides) return;
     page=n; img.src=slides[n-1]; img.hidden=false; msg.hidden=true;
-    img.onload=function(){ if(img.naturalWidth) stage.style.setProperty('--ar',img.naturalWidth/img.naturalHeight); };
+    img.onload=function(){ if(img.naturalWidth){ stage.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); } };
     img.alt='Diapositiva '+n+' de '+total;
     counter.textContent=n+' / '+total; bar.style.width=(n/total*100)+'%';
     if(n<total){ var pre=new Image(); pre.src=slides[n]; }
   }
-  function fetchSlides(k,done,fail){
-    if(window.DIAPOSITIVAS[k]){ done(window.DIAPOSITIVAS[k]); return; }
-    if(loading[k]){ loading[k].push([done,fail]); return; }
-    loading[k]=[[done,fail]];
-    var s=document.createElement('script'); s.src='clases/'+k+'.js'; s.async=true;
-    s.onload=function(){ var l=loading[k]; delete loading[k]; l.forEach(function(c){ window.DIAPOSITIVAS[k]?c[0](window.DIAPOSITIVAS[k]):c[1](); }); };
-    s.onerror=function(){ var l=loading[k]; delete loading[k]; s.remove(); l.forEach(function(c){ c[1](); }); };
+  function fetchSlides(p, done, fail){
+    if(window.DIAPOSITIVAS[p.clave]){ done(window.DIAPOSITIVAS[p.clave]); return; }
+    if(loading[p.clave]){ loading[p.clave].push([done,fail]); return; }
+    loading[p.clave]=[[done,fail]];
+    var s=document.createElement('script'); s.src=p.archivo; s.async=true;
+    s.onload=function(){ var l=loading[p.clave]; delete loading[p.clave];
+      l.forEach(function(cb){ window.DIAPOSITIVAS[p.clave] ? cb[0](window.DIAPOSITIVAS[p.clave]) : cb[1](); }); };
+    s.onerror=function(){ var l=loading[p.clave]; delete loading[p.clave]; s.remove(); l.forEach(function(cb){ cb[1](); }); };
     document.head.appendChild(s);
   }
   function load(i){
     if(i===cur) return;
-    cur=i; stop(); slides=null; total=0; page=1;
-    document.querySelectorAll('.unit').forEach(function(o){ o.setAttribute('aria-selected', +o.dataset.i===i?'true':'false'); });
-    viewer.setAttribute('aria-labelledby','tab-'+UNIDADES[i].clave);
+    cur=i; stop(); slides=null; page=1; total=0;
+    var p=PRESENTACIONES[i];
+    viewer.style.setProperty('--cd','var('+p.color+')');
+    viewer.setAttribute('aria-labelledby', i===0?'pick-pdr':'pick-tesis');
     setAsk(i);
-    img.hidden=true; msg.hidden=false; msg.textContent='Cargando la unidad '+UNIDADES[i].n+'…';
+    img.hidden=true; msg.hidden=false; msg.textContent='Cargando la presentación…';
     counter.textContent='– / –'; bar.style.width='0';
-    fetchSlides(UNIDADES[i].clave,function(list){
-      if(cur!==i) return; slides=list; total=list.length; go(1); start();
-    },function(){
-      if(cur!==i) return; msg.textContent='No se pudo cargar la unidad. Revisá tu conexión y volvé a intentar.'; cur=-1;
+    fetchSlides(p, function(list){
+      if(cur!==i) return;
+      slides=list; total=list.length; go(1); start();
+    }, function(){
+      if(cur!==i) return;
+      msg.textContent='No se pudo cargar la presentación. Podés pedirla con el botón «Solicitar esta presentación».';
     });
   }
-  box.addEventListener('click',function(ev){ var b=ev.target.closest('.unit'); if(!b) return; load(+b.dataset.i);
-    var r=stage.getBoundingClientRect(); if(r.top<0||r.bottom>window.innerHeight){ stage.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'center'}); } });
-  function prev(){ if(slides){ go(page>1?page-1:total); start(); } }
-  function next(){ if(slides){ go(page<total?page+1:1); start(); } }
-  document.getElementById('prev').addEventListener('click',prev);
-  document.getElementById('next').addEventListener('click',next);
-  document.getElementById('prev2').addEventListener('click',prev);
-  document.getElementById('next2').addEventListener('click',next);
+
+  document.querySelectorAll('.pick').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.pick').forEach(function(o){o.setAttribute('aria-selected', o===btn?'true':'false');});
+      load(+btn.dataset.pres);
+    });
+  });
+  document.getElementById('prev').addEventListener('click',function(){ if(slides){ go(page>1?page-1:total); start(); } });
+  document.getElementById('next').addEventListener('click',function(){ if(slides){ go(page<total?page+1:1); start(); } });
+  document.getElementById('prev2').addEventListener('click',function(){ document.getElementById('prev').click(); });
+  document.getElementById('next2').addEventListener('click',function(){ document.getElementById('next').click(); });
   playBtn.addEventListener('click',function(){ playing=!playing; updatePlay(); if(playing) start(); else stop(); });
   document.getElementById('full').addEventListener('click',function(){
-    if(document.fullscreenElement) document.exitFullscreen();
-    else if(stage.requestFullscreen) stage.requestFullscreen();
-    else if(stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
+    if(document.fullscreenElement){ document.exitFullscreen(); }
+    else if(stage.requestFullscreen){ stage.requestFullscreen(); }
+    else if(stage.webkitRequestFullscreen){ stage.webkitRequestFullscreen(); }
   });
   viewer.addEventListener('keydown',function(ev){
-    if(ev.target.closest&&ev.target.closest('a')) return;
-    if(ev.key==='ArrowRight'){ next(); ev.preventDefault(); }
-    if(ev.key==='ArrowLeft'){ prev(); ev.preventDefault(); }
+    if(ev.target.closest && ev.target.closest('a')) return;
+    if(ev.key==='ArrowRight'){ document.getElementById('next').click(); ev.preventDefault(); }
+    if(ev.key==='ArrowLeft'){ document.getElementById('prev').click(); ev.preventDefault(); }
   });
   var sx=null;
   stage.addEventListener('touchstart',function(ev){ sx=ev.touches[0].clientX; },{passive:true});
-  stage.addEventListener('touchend',function(ev){ if(sx===null) return; var dx=ev.changedTouches[0].clientX-sx; sx=null; if(Math.abs(dx)>40)(dx<0?next:prev)(); });
+  stage.addEventListener('touchend',function(ev){
+    if(sx===null) return; var dx=ev.changedTouches[0].clientX-sx; sx=null;
+    if(Math.abs(dx)>40){ document.getElementById(dx<0?'next':'prev').click(); }
+  });
 
   updatePlay(); setAsk(0);
+  /* se carga cuando la sección aparece en pantalla, y solo pasa sola mientras se ve */
   if('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ if(e[0].isIntersecting&&cur<0) load(0); },{rootMargin:'300px 0px'}).observe(document.getElementById('clases'));
-    new IntersectionObserver(function(e){ visible=e[0].isIntersecting; if(visible) start(); else stop(); },{threshold:.5}).observe(stage);
+    new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && cur<0) load(0);
+    },{rootMargin:'300px 0px'}).observe(document.getElementById('presentaciones'));
+    new IntersectionObserver(function(entries){
+      visible=entries[0].isIntersecting;
+      if(visible) start(); else stop();
+    },{threshold:.5}).observe(stage);
   } else { visible=true; load(0); }
+
+  /* ---------- fotos ---------- */
+  if(FOTOS.length){
+    var g=document.getElementById('gallery'), lb=document.getElementById('lightbox');
+    FOTOS.forEach(function(f){
+      var fig=document.createElement('figure');
+      var bt=document.createElement('button'); bt.type='button'; bt.setAttribute('aria-label','Ampliar: '+(f.pie||'foto'));
+      var im=document.createElement('img'); im.src=f.archivo; im.alt=f.pie||''; im.loading='lazy';
+      bt.appendChild(im); fig.appendChild(bt);
+      if(f.pie){ var c=document.createElement('figcaption'); c.textContent=f.pie; fig.appendChild(c); }
+      bt.addEventListener('click',function(){
+        document.getElementById('lb-img').src=f.archivo; document.getElementById('lb-img').alt=f.pie||'';
+        document.getElementById('lb-cap').textContent=f.pie||'';
+        if(lb.showModal) lb.showModal(); else window.open(f.archivo);
+      });
+      g.appendChild(fig);
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){ lb.close(); });
+    lb.addEventListener('click',function(ev){ if(ev.target===lb) lb.close(); });
+    document.getElementById('fotos').hidden=false;
+  } else { document.querySelector('[data-opt="fotos"]').hidden=true; }
+
+  /* ---------- videos ---------- */
+  if(VIDEOS.length){
+    var vl=document.getElementById('video-list');
+    VIDEOS.forEach(function(v){
+      var art=document.createElement('article'); art.className='video';
+      var fr=document.createElement('div'); fr.className='frame';
+      var bt=document.createElement('button'); bt.type='button'; bt.setAttribute('aria-label','Reproducir: '+v.titulo);
+      var im=document.createElement('img'); im.src='https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg'; im.alt=''; im.loading='lazy';
+      var pl=document.createElement('span'); pl.className='play'; pl.textContent='▶';
+      bt.appendChild(im); bt.appendChild(pl); fr.appendChild(bt);
+      bt.addEventListener('click',function(){
+        var ifr=document.createElement('iframe');
+        ifr.src='https://www.youtube-nocookie.com/embed/'+v.id+'?autoplay=1&rel=0';
+        ifr.title=v.titulo; ifr.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; ifr.allowFullscreen=true;
+        fr.innerHTML=''; fr.appendChild(ifr);
+      });
+      var h=document.createElement('h3'); h.textContent=v.titulo;
+      art.appendChild(fr); art.appendChild(h); vl.appendChild(art);
+    });
+    document.getElementById('videos').hidden=false;
+  } else { document.querySelector('[data-opt="videos"]').hidden=true; }
 })();
 </script>
 </body>
