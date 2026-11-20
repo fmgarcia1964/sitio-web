@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Módulo 2 · Vigilancia epidemiológica</title>
+<meta name="description" content="Módulo 2 de la Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental (UPATecO, 2026): clases, guía de estudio, ficha de normas y bibliografía. Docente: Dr. Francisco García Campos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+
+/* Paleta: estratos pastel de los valles salteños. Cada área de trabajo tiene su color y lo conserva en todo el sitio. */
+:root{
+  --paper:#f7f8fb; --surface:#ffffff; --ink:#2b2f3a; --muted:#5e6472; --line:#e3e5ec;
+  --accent:#5a4fa0; --accent-ink:#ffffff;
+  --arbo:#f6c9ae; --hanta:#ecdca8; --leish:#d3cbf0; --chagas:#f3bccb; --palu:#bcdff1; --vigil:#c6e2cb;
+  --arbo-d:#a8582f; --hanta-d:#7d6a1f; --leish-d:#5a4fa0; --chagas-d:#a3405e; --palu-d:#2f6d8c; --vigil-d:#3f7a4a;
+  --f-display:"Young Serif", Georgia, serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --r-lg:22px; --r-md:14px; --r-sm:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1d2030; --surface:#262a3c; --ink:#eceef4; --muted:#aab0c0; --line:#363b50;
+  --accent:#c9c1f5; --accent-ink:#1d2030;
+  --arbo:#5e4537; --hanta:#57503a; --leish:#464068; --chagas:#5e3c49; --palu:#33505f; --vigil:#3a5441;
+  --arbo-d:#f6c9ae; --hanta-d:#ecdca8; --leish-d:#d3cbf0; --chagas-d:#f3bccb; --palu-d:#bcdff1; --vigil-d:#c6e2cb;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1d2030; --surface:#262a3c; --ink:#eceef4; --muted:#aab0c0; --line:#363b50;
+  --accent:#c9c1f5; --accent-ink:#1d2030;
+  --arbo:#5e4537; --hanta:#57503a; --leish:#464068; --chagas:#5e3c49; --palu:#33505f; --vigil:#3a5441;
+  --arbo-d:#f6c9ae; --hanta-d:#ecdca8; --leish-d:#d3cbf0; --chagas-d:#f3bccb; --palu-d:#bcdff1; --vigil-d:#c6e2cb;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+h1,h2{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em}
+h3,h4{font-family:var(--f-body);font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:70rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+/* encabezado */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;flex-wrap:wrap;padding-block:.7rem}
+.brand{font-family:var(--f-display);font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:.25rem .9rem;flex-wrap:wrap}
+nav a{font-weight:500;font-size:.95rem;color:var(--muted);text-decoration:none;padding:.2rem 0}
+nav a:hover{color:var(--ink)}
+
+section{padding-block:clamp(3.25rem,7vw,5.5rem)}
+.head{display:grid;gap:.7rem;margin-bottom:2.25rem;max-width:44rem}
+.head h2{font-size:clamp(2rem,4.2vw,2.9rem)}
+.head p{color:var(--muted);font-size:1.05rem}
+.band{background:var(--surface)}
+h3.sub{font-size:1.15rem;margin:3rem 0 1rem}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-body);font-weight:600;font-size:.95rem;padding:.6rem 1.1rem;border-radius:999px;text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;line-height:1.2}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.06)}
+.btn.small{font-size:.85rem;padding:.38rem .85rem}
+.btn small{font-weight:400;opacity:.8}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,6vw,4.5rem) clamp(3rem,6vw,4.5rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero .where{font-weight:500;color:var(--muted)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-top:.6rem;line-height:1.02}
+.hero .role{margin-top:1.25rem;font-size:1.2rem;max-width:34rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.75rem}
+.strata{display:grid;gap:1rem}
+.strata svg{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.86rem;font-weight:500;padding:.28rem .7rem;border-radius:999px;text-decoration:none;color:var(--ink);background:var(--c)}
+.chip:hover{filter:brightness(.97)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--line);padding-top:1.5rem}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1}
+.facts span{display:block;margin-top:.4rem;font-size:.92rem;color:var(--muted);line-height:1.4}
+
+/* trayectoria */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.prose{display:grid;gap:1.1rem;max-width:40rem}
+.timeline{position:relative;display:grid;gap:0}
+.timeline li{position:relative;display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding:.85rem 0 .85rem 1.4rem;border-left:2px solid var(--line)}
+.timeline li::before{content:"";position:absolute;left:-7px;top:1.2rem;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--line)}
+.timeline li.now::before{background:var(--accent);border-color:var(--accent)}
+.timeline .yr{font-size:.88rem;color:var(--muted);font-weight:500}
+.timeline b{display:block;font-weight:600;line-height:1.3}
+.timeline small{display:block;font-size:.92rem;color:var(--muted)}
+.col-title{font-family:var(--f-display);font-size:1.35rem;margin-bottom:1rem}
+
+/* áreas */
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.area{background:var(--c);border-radius:var(--r-lg);padding:1.5rem 1.5rem 1.6rem;display:grid;gap:.6rem;align-content:start}
+.area .kind{font-size:.85rem;font-weight:600;color:var(--cd)}
+.area h3{font-family:var(--f-display);font-weight:400;font-size:1.45rem}
+.area p{font-size:.98rem}
+
+/* publicaciones */
+.pubs{display:grid;gap:.75rem}
+.pub{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.25rem;background:var(--surface);border-radius:var(--r-md);padding:1.25rem 1.4rem;border-left:6px solid var(--c)}
+.pub .yr{font-weight:600;color:var(--muted)}
+.pub h3{font-size:1.05rem;line-height:1.35}
+.pub p{font-size:.94rem;color:var(--muted);margin-top:.35rem}
+.pub p a{overflow-wrap:anywhere}
+.pub .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;margin-top:.7rem}
+.kind-tag{font-size:.8rem;font-weight:600;padding:.15rem .6rem;border-radius:999px;background:var(--c);color:var(--ink)}
+.note{margin-top:1.25rem;font-size:.93rem;color:var(--muted);max-width:52rem}
+.plain{display:grid}
+.plain li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.25rem;padding-block:.8rem;border-bottom:1px solid var(--line);font-size:.98rem}
+.plain li:first-child{border-top:1px solid var(--line)}
+.plain .yr{color:var(--muted);font-weight:600}
+.plain em{font-style:normal;color:var(--muted)}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--c);margin-right:.45rem;vertical-align:.05rem}
+
+/* visor de presentaciones */
+.picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+.pick{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:.35rem;padding:1rem 1.2rem;border-radius:var(--r-md);background:var(--surface);border:2px solid transparent}
+.pick:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.pick[aria-selected="true"]{border-color:var(--cd);background:var(--c)}
+.pick .yr{font-size:.85rem;font-weight:600;color:var(--muted)}
+.pick .t{font-weight:700;line-height:1.3}
+.pick .w{font-size:.9rem;color:var(--muted)}
+.viewer{background:var(--surface);border-radius:var(--r-lg);padding:clamp(.75rem,2vw,1.25rem);display:grid;gap:.9rem}
+.stage{--ar:1.7778;position:relative;background:#e9eaf0;border-radius:var(--r-md);overflow:hidden;aspect-ratio:var(--ar);width:min(100%,calc(76vh * var(--ar)));margin-inline:auto;display:grid;place-items:center;user-select:none;-webkit-user-select:none}
+.stage img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.stage .msg{position:absolute;inset:0;display:grid;place-items:center;padding:1rem;text-align:center;color:#5e6472;font-size:.95rem}
+.stage:fullscreen{background:#111;border-radius:0;aspect-ratio:auto;width:100%}
+.stage .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#2b2f3a;font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.stage .nav.prev{left:.6rem} .stage .nav.next{right:.6rem}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;justify-content:space-between}
+.controls .left{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.progress{flex:1 1 10rem;height:6px;border-radius:99px;background:var(--line);overflow:hidden;min-width:8rem}
+.progress i{display:block;height:100%;width:0;background:var(--cd);transition:width .3s}
+.counter{font-size:.92rem;color:var(--muted);min-width:4.5rem}
+.viewer-foot{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;justify-content:space-between;font-size:.93rem;color:var(--muted)}
+
+/* galería y videos */
+.gallery{columns:3 15rem;column-gap:1rem}
+.gallery figure{break-inside:avoid;margin:0 0 1rem;background:var(--surface);border-radius:var(--r-md);overflow:hidden}
+.gallery button{all:unset;cursor:zoom-in;display:block;width:100%}
+.gallery button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.gallery img{display:block;width:100%;height:auto}
+.gallery figcaption{padding:.6rem .85rem .75rem;font-size:.9rem;color:var(--muted)}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh}
+dialog.lightbox::backdrop{background:rgba(20,22,32,.85)}
+dialog.lightbox img{display:block;max-width:100%;max-height:82vh;border-radius:var(--r-md);margin:0 auto}
+dialog.lightbox p{color:#fff;text-align:center;margin-top:.6rem;font-size:.95rem}
+dialog.lightbox .close{position:absolute;top:.4rem;right:.4rem;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:1.3rem;cursor:pointer}
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:1rem}
+.video{background:var(--surface);border-radius:var(--r-md);overflow:hidden}
+.video .frame{position:relative;aspect-ratio:16/9;background:#000}
+.video .frame button{all:unset;cursor:pointer;position:absolute;inset:0;display:grid;place-items:center}
+.video .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video .frame .play{position:relative;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:1.5rem;color:#2b2f3a;padding-left:4px}
+.video .frame button:focus-visible .play{outline:3px solid #fff;outline-offset:3px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video h3{font-size:1rem;padding:.75rem 1rem .9rem;line-height:1.35}
+
+/* contacto */
+.contact{background:var(--leish);border-radius:var(--r-lg);padding:clamp(1.5rem,4vw,2.75rem);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem}
+.contact h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.contact p{margin-top:.75rem}
+.mail{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.25rem}
+.mail code{font-family:var(--f-body);font-weight:600;font-size:1.02rem;background:var(--surface);padding:.5rem .85rem;border-radius:999px;user-select:all;overflow-wrap:anywhere}
+.links{display:grid;gap:.9rem;align-content:start}
+.links div{display:grid;gap:.1rem}
+.links b{font-weight:600}
+.links span{font-size:.95rem;color:var(--muted)}
+#copied{margin-top:.5rem;font-size:.9rem;min-height:1.4em}
+
+footer{font-size:.88rem;color:var(--muted)}
+footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+[hidden]{display:none !important}
+.mob-only{display:none}
+@media (max-width:560px){.mob-only{display:inline-flex}}
+
+@media (max-width:860px){
+  .hero-grid,.about-grid,.contact{grid-template-columns:minmax(0,1fr)}
+  .areas{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}
+  .picker{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .areas{grid-template-columns:minmax(0,1fr)}
+  .pub{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .plain li{grid-template-columns:3.5rem minmax(0,1fr);gap:.8rem}
+  .timeline li{grid-template-columns:minmax(0,1fr);gap:.15rem}
+  .stage .nav{display:none}
+}
+
+/* ---- propio del Módulo 2 ---- */
+.m2-hero{padding-block:clamp(2.5rem,6vw,4rem)}
+.m2-hero .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,5vw,3.5rem);align-items:center}
+.m2-hero .course{font-weight:500;color:var(--muted);max-width:36rem}
+.m2-hero h1{font-size:clamp(2.2rem,5.4vw,3.8rem);margin-top:.7rem;line-height:1.05}
+.m2-hero .lead{margin-top:1.1rem;font-size:1.15rem;max-width:34rem}
+.m2-hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.m2-hero figure{margin:0}
+.m2-hero img{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
+.m2-hero figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
+.facts3{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.facts3 span{font-size:.9rem;font-weight:600;padding:.3rem .8rem;border-radius:999px;background:var(--vigil)}
+.back{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--ink)}
+.objs{counter-reset:o;display:grid;gap:.6rem;max-width:46rem}
+.objs li{counter-increment:o;display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.6rem;align-items:baseline}
+.objs li::before{content:counter(o);font-family:var(--f-display);font-size:1.15rem;color:var(--vigil-d)}
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.units{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-bottom:1.25rem}
+.unit{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.75rem;align-items:center;padding:.75rem 1rem;border-radius:var(--r-md);background:var(--surface);border:2px solid transparent}
+.unit:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.unit .n{font-family:var(--f-display);font-size:1.35rem;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;background:var(--vigil);color:var(--ink)}
+.unit .t{font-weight:600;line-height:1.3}
+.unit .s{display:block;font-weight:400;font-size:.86rem;color:var(--muted)}
+.unit[aria-selected="true"]{border-color:var(--vigil-d);background:var(--vigil)}
+.unit[aria-selected="true"] .n{background:var(--surface)}
+.docs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.doc3{background:var(--surface);border-radius:var(--r-lg);padding:1.4rem 1.4rem 1.5rem;display:grid;gap:.55rem;align-content:start;border-top:8px solid var(--c)}
+.doc3 h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem}
+.doc3 p{font-size:.95rem;color:var(--muted)}
+.doc3 .btn{justify-self:start;margin-top:.3rem}
+.readings{display:grid;gap:.7rem;margin-top:.5rem}
+.readings li{padding-left:1rem;border-left:3px solid var(--vigil);font-size:.97rem}
+.agenda{display:grid}
+.agenda li{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding-block:.75rem;border-bottom:1px solid var(--line)}
+.agenda li:first-child{border-top:1px solid var(--line)}
+.agenda .h{font-weight:600;color:var(--muted)}
+.agenda b{display:block}
+.agenda span.d{font-size:.94rem;color:var(--muted)}
+.locked{background:var(--palu);border-radius:var(--r-lg);padding:clamp(1.5rem,4vw,2.5rem);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:start}
+.locked h2{font-size:clamp(1.8rem,4vw,2.4rem)}
+.locked p{margin-top:.75rem}
+.locked ul{margin-top:.9rem;display:grid;gap:.4rem}
+.locked li{padding-left:1.4rem;position:relative}
+.locked li::before{content:"";position:absolute;left:0;top:.55em;width:.6rem;height:.6rem;border-radius:2px;background:var(--palu-d)}
+.locked .act{display:grid;gap:.8rem;background:var(--surface);border-radius:var(--r-md);padding:1.25rem}
+.locked .act p{margin:0;font-size:.93rem;color:var(--muted)}
+.lock-ico{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:var(--palu)}
+@media (max-width:860px){
+  .m2-hero .grid,.two-col,.locked{grid-template-columns:minmax(0,1fr)}
+  .docs3{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){ .units{grid-template-columns:minmax(0,1fr)} .agenda li{grid-template-columns:minmax(0,1fr);gap:.1rem} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">Francisco García Campos</a>
+    <nav aria-label="Secciones del Módulo 2"><ul>
+      <li><a href="#modulo">Módulo</a></li>
+      <li><a href="#clases">Clases</a></li>
+      <li><a href="#materiales">Materiales</a></li>
+      <li><a href="#encuentro">Encuentro</a></li>
+      <li><a href="#restringido">Acceso docente</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="m2-hero" id="modulo">
+  <div class="wrap">
+    <a class="back" href="./">‹ Volver al sitio principal</a>
+    <div class="grid" style="margin-top:1.5rem">
+      <div>
+        <p class="course">Diplomatura Universitaria en Epidemiología con orientación en Vigilancia Ambiental, <a href="https://upateco.edu.ar/diplomaturas" rel="noopener">UPATecO</a>, 2026</p>
+        <h1>Módulo 2: Vigilancia epidemiológica con orientación ambiental</h1>
+        <p class="lead">Dr. Francisco García Campos, coordinador de la Diplomatura y docente a cargo del módulo.</p>
+        <div class="facts3"><span>10 horas</span><span>2 semanas</span><span>10 unidades</span><span>Encuentro sincrónico el 17 de noviembre</span></div>
+        <div class="cta">
+          <a class="btn primary" href="#clases">Ver las clases</a>
+          <a class="btn" href="#materiales">Guía y bibliografía</a>
+        </div>
+      </div>
+      <figure>
+        <img src="campo.jpg" alt="Dos técnicos toman muestras de agua a orillas de un río urbano" width="705" height="414">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="two-col">
+      <div class="prose">
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem)">Presentación</h2>
+        <p>El propósito del módulo es que cada estudiante pueda comprender, operar y evaluar un sistema de vigilancia epidemiológica, y reconocer cómo ese sistema se amplía para vigilar los peligros ambientales y la interfaz humano–animal–ambiente.</p>
+        <p>La vigilancia es la herramienta que convierte datos dispersos en información para la acción. Sin vigilancia no hay alerta temprana, no hay evaluación de programas y no hay forma de saber si una intervención ambiental protege efectivamente a la población. Por eso este módulo es el puente entre los fundamentos de la epidemiología (Módulo 1) y los módulos de vigilancia ambiental, centinela y Una Salud (Módulos 5 a 7).</p>
+      </div>
+      <div>
+        <h3 class="col-title">Al terminar el módulo vas a poder</h3>
+        <ol class="objs" style="padding:0;margin:0;list-style:none">
+          <li>Definir la vigilancia epidemiológica y la vigilancia en salud, y explicar sus diferencias.</li>
+          <li>Ubicar los hitos históricos que dieron forma a la vigilancia moderna.</li>
+          <li>Describir el marco legal argentino de la notificación obligatoria y el funcionamiento del SNVS.</li>
+          <li>Distinguir los tipos de vigilancia y elegir la adecuada para cada problema.</li>
+          <li>Aplicar las etapas de un sistema de vigilancia: recolección, análisis, interpretación y difusión.</li>
+          <li>Evaluar un sistema de vigilancia a partir de sus atributos.</li>
+          <li>Explicar el modelo peligro–exposición–efecto y aplicarlo a problemas de Salta.</li>
+          <li>Relacionar el enfoque Una Salud con la vigilancia integrada.</li>
+          <li>Interpretar el Reglamento Sanitario Internacional (2005).</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clases">
+  <div class="wrap">
+    <div class="head">
+      <h2>Clases</h2>
+      <p>Elegí una unidad para ver su presentación acá mismo. Avanzá con las flechas, deslizando el dedo o con el botón de reproducción.</p>
+    </div>
+    <div class="units" role="tablist" aria-label="Unidades del módulo" id="units"></div>
+
+    <div class="viewer" id="viewer" role="tabpanel" style="--cd:var(--vigil-d)">
+      <div class="stage" id="stage" aria-live="polite">
+        <img id="slide" alt="" draggable="false" hidden>
+        <p class="msg" id="msg">Elegí una unidad para empezar.</p>
+        <button class="nav prev" id="prev" type="button" aria-label="Diapositiva anterior">‹</button>
+        <button class="nav next" id="next" type="button" aria-label="Diapositiva siguiente">›</button>
+      </div>
+      <div class="controls">
+        <div class="left">
+          <button class="btn small mob-only" id="prev2" type="button">‹ Anterior</button>
+          <button class="btn small mob-only" id="next2" type="button">Siguiente ›</button>
+          <button class="btn small" id="play" type="button">Reproducir</button>
+          <button class="btn small" id="full" type="button">Pantalla completa</button>
+        </div>
+        <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+        <span class="counter num" id="counter">– / –</span>
+      </div>
+      <div class="viewer-foot">
+        <span>© Dr. Francisco García Campos. Material del Módulo 2, Diplomatura UPATecO 2026. Para citarlo o usarlo, escribime.</span>
+        <a class="btn small primary" id="ask" href="#">Solicitar esta presentación</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="materiales">
+  <div class="wrap">
+    <div class="head">
+      <h2>Materiales de lectura</h2>
+      <p>De libre acceso. Podés leerlos en línea o descargarlos.</p>
+    </div>
+    <div class="docs3">
+      <article class="doc3" style="--c:var(--vigil)">
+        <h3>Guía de estudio</h3>
+        <p>Las diez unidades desarrolladas, recuadros «Para pensar», actividades de autoevaluación y casos, glosario y referencias. 42 páginas.</p>
+        <a class="btn small primary" href="Guia_de_estudio_Modulo2_Vigilancia_Epidemiologica.pdf" target="_blank" rel="noopener">Abrir la guía <small>PDF · 0,6 MB</small></a>
+      </article>
+      <article class="doc3" style="--c:var(--palu)">
+        <h3>Ficha de normas y procedimientos</h3>
+        <p>Cómo leer, construir y usar la ficha de normas y procedimientos de la OMS (Cuadro 4.4 del MOPECE), con un modelo para eventos ambientales. 18 páginas.</p>
+        <a class="btn small primary" href="Ficha_Normas_y_Procedimientos_Vigilancia_Modulo2.pdf" target="_blank" rel="noopener">Abrir la ficha <small>PDF · 0,7 MB</small></a>
+      </article>
+      <article class="doc3" style="--c:var(--hanta)">
+        <h3>Bibliografía y material audiovisual</h3>
+        <p>Lectura obligatoria, bibliografía complementaria sobre vigilancia epidemiológica y ambiental, videos y cursos sobre Una Salud. 5 páginas.</p>
+        <a class="btn small primary" href="Bibliografia_y_material_audiovisual_Modulo2.pdf" target="_blank" rel="noopener">Abrir la bibliografía <small>PDF · 0,2 MB</small></a>
+      </article>
+    </div>
+
+    <h3 class="sub">Lectura obligatoria</h3>
+    <ul class="readings">
+      <li>Organización Panamericana de la Salud. <i>Módulos de Principios de Epidemiología para el Control de Enfermedades (MOPECE). Módulo 4: Vigilancia en salud pública.</i> 2.ª ed. rev. Washington, DC: OPS; 2011.</li>
+      <li>Ministerio de Salud de la Nación, Dirección de Epidemiología. <i>Guía para el fortalecimiento de la vigilancia de la salud en el nivel local.</i> Buenos Aires; 2013.</li>
+      <li>Ministerio de Salud de la Nación. <i>Manual de normas y procedimientos de vigilancia y control de eventos de notificación obligatoria.</i> Buenos Aires; 2026 (Disposición DE 1/2026).</li>
+      <li>Ballester F. Vigilancia de riesgos ambientales en salud pública. El caso de la contaminación atmosférica. <i>Gac Sanit.</i> 2005;19(3):253-7. <a href="https://www.scielosp.org/pdf/gs/v19n3/opinion.pdf" rel="noopener">Texto completo</a></li>
+    </ul>
+    <p class="note">Los enlaces a cada texto están en el PDF de bibliografía.</p>
+  </div>
+</section>
+
+<section id="encuentro">
+  <div class="wrap">
+    <div class="head">
+      <h2>Encuentro sincrónico del 17 de noviembre</h2>
+      <p>Por Zoom, de 17 a 20 h. La consigna del trabajo grupal y la asignación de grupos se comparten por el campus.</p>
+    </div>
+    <ul class="agenda">
+      <li><span class="h num">17:00 – 18:00</span><span><b>Exposición</b><span class="d">Vigilancia epidemiológica con orientación ambiental.</span></span></li>
+      <li><span class="h num">18:00 – 18:10</span><span><b>Consigna y pase a las aulas</b><span class="d">Presentación de la consigna y apertura de las salas de Zoom.</span></span></li>
+      <li><span class="h num">18:10 – 19:00</span><span><b>Trabajo en aulas virtuales</b><span class="d">Discusión guiada del artículo asignado y redacción de la reflexión.</span></span></li>
+      <li><span class="h num">19:00 – 19:45</span><span><b>Puesta en común</b><span class="d">Cada grupo presenta en 4 minutos, agrupados por artículo.</span></span></li>
+      <li><span class="h num">19:45 – 20:00</span><span><b>Síntesis y cierre</b><span class="d">Síntesis del docente y tareas para el campus.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="restringido">
+  <div class="wrap">
+    <div class="locked">
+      <div>
+        <div class="lock-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h2 style="margin-top:.8rem">Material docente</h2>
+        <p>Acceso solo para el equipo docente y las personas autorizadas. Incluye:</p>
+        <ul>
+          <li>Banco de preguntas de la evaluación individual</li>
+          <li>Conformación de los grupos de trabajo</li>
+          <li>Consignas y plantilla del trabajo grupal del 17 de noviembre</li>
+          <li>Versiones editables de las clases, la ficha y la bibliografía</li>
+        </ul>
+      </div>
+      <div class="act">
+        <p>El material está en una carpeta de Google Drive. Al abrirla, Google te pide entrar con la cuenta que fue autorizada.</p>
+        <a class="btn primary" id="drive" href="#" rel="noopener">Abrir la carpeta</a>
+        <p>¿No tenés acceso? <a id="req" href="#">Pedilo por correo</a> indicando la cuenta de Google con la que vas a entrar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Francisco García Campos</span><a class="back" href="./">franciscogarciacampos.com</a></div></footer>
+
+<script>
+/* =====================================================================
+   CONTENIDO EDITABLE
+   CARPETA_DRIVE: pegá entre las comillas el enlace de la carpeta de
+   Google Drive (Compartir > Copiar enlace). Mientras esté vacío, el
+   botón «Abrir la carpeta» lleva a pedir acceso por correo.
+   ===================================================================== */
+var CARPETA_DRIVE = "https://drive.google.com/drive/folders/1DWVRjDBX8x_rfIY9rV_QlPWrwi4b3J3m";
+var CORREO = "pacogarciacampos1964@gmail.com";
+var SEGUNDOS_POR_DIAPOSITIVA = 8;
+var UNIDADES = [
+  { n:1,  clave:"u01", t:"La vigilancia epidemiológica: concepto e hitos históricos", s:"De Graunt a 2026" },
+  { n:2,  clave:"u02", t:"Marco legal y sistema de vigilancia en Argentina", s:"Ley 15.465, Disposición 1/2026 y SNVS" },
+  { n:3,  clave:"u03", t:"Vigilancia epidemiológica, en salud y sanitaria", s:"Propósitos y usos" },
+  { n:4,  clave:"u04", t:"Tipos de vigilancia", s:"Pasiva, activa, centinela, sindrómica y más" },
+  { n:5,  clave:"u05", t:"Eventos de salud bajo vigilancia", s:"Priorización, definiciones de caso y brotes" },
+  { n:6,  clave:"u06", t:"Sistemas de vigilancia y sus etapas", s:"Recolección, análisis, interpretación y difusión" },
+  { n:7,  clave:"u07", t:"Evaluación de los sistemas de vigilancia", s:"Utilidad, atributos, sensibilidad y VPP" },
+  { n:8,  clave:"u08", t:"Vigilancia en salud ambiental", s:"Peligro, exposición y efecto en Salta" },
+  { n:9,  clave:"u09", t:"Una Salud y vigilancia integrada", s:"Enfoque y marco institucional" },
+  { n:10, clave:"u10", t:"Reglamento Sanitario Internacional (2005)", s:"Notificación, Anexo 2 y enmiendas 2024" }
+];
+</script>
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* acceso restringido */
+  var pedir='mailto:'+CORREO+'?subject='+encodeURIComponent('Pedido de acceso: material docente del Módulo 2')+
+    '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera acceso a la carpeta del material docente del Módulo 2.\n\nNombre:\nFunción en la Diplomatura:\nCuenta de Google con la que voy a entrar:\n\nGracias.');
+  document.getElementById('req').href=pedir;
+  var dr=document.getElementById('drive');
+  if(CARPETA_DRIVE){ dr.href=CARPETA_DRIVE; dr.target='_blank'; } else { dr.href=pedir; dr.textContent='Pedir acceso'; }
+
+  /* lista de unidades */
+  var box=document.getElementById('units');
+  UNIDADES.forEach(function(u,i){
+    var b=document.createElement('button'); b.type='button'; b.className='unit'; b.setAttribute('role','tab');
+    b.setAttribute('aria-selected','false'); b.id='tab-'+u.clave; b.dataset.i=i;
+    b.innerHTML='<span class="n"></span><span class="t"></span>';
+    b.querySelector('.n').textContent=u.n;
+    b.querySelector('.t').textContent=u.t;
+    var s=document.createElement('span'); s.className='s'; s.textContent=u.s; b.querySelector('.t').appendChild(s);
+    box.appendChild(b);
+  });
+
+  /* visor */
+  var img=document.getElementById('slide'), stage=document.getElementById('stage'), msg=document.getElementById('msg');
+  var counter=document.getElementById('counter'), bar=document.getElementById('bar'), playBtn=document.getElementById('play');
+  var viewer=document.getElementById('viewer'), ask=document.getElementById('ask');
+  var slides=null, page=1, total=0, cur=-1, timer=null, playing=false, visible=false, loading={};
+  window.DIAPOSITIVAS=window.DIAPOSITIVAS||{};
+  stage.addEventListener('contextmenu',function(ev){ev.preventDefault();});
+
+  function setAsk(i){
+    var u=UNIDADES[i]; var title='Unidad '+u.n+': '+u.t;
+    ask.href='mailto:'+CORREO+'?subject='+encodeURIComponent('Solicitud de presentación del Módulo 2: '+title)+
+      '&body='+encodeURIComponent('Hola Francisco:\n\nQuisiera solicitar la presentación "'+title+'".\n\nNombre:\nInstitución:\nUso previsto:\n\nGracias.');
+  }
+  function updatePlay(){ playBtn.textContent=playing?'Pausar':'Reproducir'; }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  function start(){ stop(); if(playing&&visible&&slides){ timer=setInterval(function(){ go(page<total?page+1:1); },SEGUNDOS_POR_DIAPOSITIVA*1000); } }
+  function go(n){
+    if(!slides) return;
+    page=n; img.src=slides[n-1]; img.hidden=false; msg.hidden=true;
+    img.onload=function(){ if(img.naturalWidth) stage.style.setProperty('--ar',img.naturalWidth/img.naturalHeight); };
+    img.alt='Diapositiva '+n+' de '+total;
+    counter.textContent=n+' / '+total; bar.style.width=(n/total*100)+'%';
+    if(n<total){ var pre=new Image(); pre.src=slides[n]; }
+  }
+  function fetchSlides(k,done,fail){
+    if(window.DIAPOSITIVAS[k]){ done(window.DIAPOSITIVAS[k]); return; }
+    if(loading[k]){ loading[k].push([done,fail]); return; }
+    loading[k]=[[done,fail]];
+    var s=document.createElement('script'); s.src='m2-'+k+'.js'; s.async=true;
+    s.onload=function(){ var l=loading[k]; delete loading[k]; l.forEach(function(c){ window.DIAPOSITIVAS[k]?c[0](window.DIAPOSITIVAS[k]):c[1](); }); };
+    s.onerror=function(){ var l=loading[k]; delete loading[k]; s.remove(); l.forEach(function(c){ c[1](); }); };
+    document.head.appendChild(s);
+  }
+  function load(i){
+    if(i===cur) return;
+    cur=i; stop(); slides=null; total=0; page=1;
+    document.querySelectorAll('.unit').forEach(function(o){ o.setAttribute('aria-selected', +o.dataset.i===i?'true':'false'); });
+    viewer.setAttribute('aria-labelledby','tab-'+UNIDADES[i].clave);
+    setAsk(i);
+    img.hidden=true; msg.hidden=false; msg.textContent='Cargando la unidad '+UNIDADES[i].n+'…';
+    counter.textContent='– / –'; bar.style.width='0';
+    fetchSlides(UNIDADES[i].clave,function(list){
+      if(cur!==i) return; slides=list; total=list.length; go(1); start();
+    },function(){
+      if(cur!==i) return; msg.textContent='No se pudo cargar la unidad. Revisá tu conexión y volvé a intentar.'; cur=-1;
+    });
+  }
+  box.addEventListener('click',function(ev){ var b=ev.target.closest('.unit'); if(!b) return; load(+b.dataset.i);
+    var r=stage.getBoundingClientRect(); if(r.top<0||r.bottom>window.innerHeight){ stage.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'center'}); } });
+  function prev(){ if(slides){ go(page>1?page-1:total); start(); } }
+  function next(){ if(slides){ go(page<total?page+1:1); start(); } }
+  document.getElementById('prev').addEventListener('click',prev);
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev2').addEventListener('click',prev);
+  document.getElementById('next2').addEventListener('click',next);
+  playBtn.addEventListener('click',function(){ playing=!playing; updatePlay(); if(playing) start(); else stop(); });
+  document.getElementById('full').addEventListener('click',function(){
+    if(document.fullscreenElement) document.exitFullscreen();
+    else if(stage.requestFullscreen) stage.requestFullscreen();
+    else if(stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
+  });
+  viewer.addEventListener('keydown',function(ev){
+    if(ev.target.closest&&ev.target.closest('a')) return;
+    if(ev.key==='ArrowRight'){ next(); ev.preventDefault(); }
+    if(ev.key==='ArrowLeft'){ prev(); ev.preventDefault(); }
+  });
+  var sx=null;
+  stage.addEventListener('touchstart',function(ev){ sx=ev.touches[0].clientX; },{passive:true});
+  stage.addEventListener('touchend',function(ev){ if(sx===null) return; var dx=ev.changedTouches[0].clientX-sx; sx=null; if(Math.abs(dx)>40)(dx<0?next:prev)(); });
+
+  updatePlay(); setAsk(0);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ if(e[0].isIntersecting&&cur<0) load(0); },{rootMargin:'300px 0px'}).observe(document.getElementById('clases'));
+    new IntersectionObserver(function(e){ visible=e[0].isIntersecting; if(visible) start(); else stop(); },{threshold:.5}).observe(stage);
+  } else { visible=true; load(0); }
+})();
+</script>
+</body>
+</html>
